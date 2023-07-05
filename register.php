@@ -55,6 +55,11 @@
                 </div>
                 
                 <button type="submit" name="submitBtn" class="text-white bg-orange-700 hover:bg-orange-800 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center">Submit</button>
+                <div class = "flex flex-row justify-between my-2">
+                    <span class = "text-white text-sm md:text-md ">Already Have Account? 
+                        <a href="login.php" class = "text-[#00FF00] text-sm md:text-md">Login</a>
+                    </span>
+                </div>
             </form>
   
             <p class="text-center text-white text-xs mt-2">

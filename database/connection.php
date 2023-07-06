@@ -6,7 +6,3 @@
 
     $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME)
     or die('database coonection  failed'.mysqli_errno($conn));
-
-    if ($conn) {
-     echo 'database connected successfully';
-    }

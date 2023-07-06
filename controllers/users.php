@@ -59,18 +59,20 @@
 
                 if ($user['type'] === 'SS') {
                     $_SESSION['user_type'] = 'SS';
+                    userlog($user);// call the user log function
                     header('Location: users/student/index.php');
                     exit();
                 } elseif ($user['type'] === 'SH') {
                     $_SESSION['user_type'] = 'SH';
+                    userlog($user);// call the user log function
                     header('Location: users/hostel_Admin/index.php');
                     exit();
                 } elseif ($user['type'] === 'SA') {
                     $_SESSION['user_type'] = 'SA';
+                    userlog($user);// call the user log function
                     header('Location: users/system_Admin/index.php');
                     exit();
                 }
-                userlog($user);// call the user log function
         
               } else {
                 array_push($errors, 'Wrong credentials');

@@ -104,12 +104,12 @@
          } else {
             $sql = $sql . " , key=?";
          }
-         $sql = $sql. "WHERE id=?";
-         $data['id'] = $id;
-         $stmt = executeQuery($sql, $data);
-         return $stmt->affected_rows;
-         
+         $i++;
       }
+      $sql = $sql. "WHERE id=?";
+      $data['id'] = $id;
+      $stmt = executeQuery($sql, $data);
+      return $stmt->affected_rows;
      }
      //function to delete in db
      function delete($table, $id){

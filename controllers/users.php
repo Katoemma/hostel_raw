@@ -4,7 +4,8 @@
     include($basePath . 'helpers/validateUser.php');
 
     $table = 'users';
-    $users = selectAll($table);
+    $users= selectAll($table);
+    $user= selectAll($table);
 
     $fname = "";
     $lname = "";
@@ -19,21 +20,8 @@
     function userlog($user){
         // Log user in
         $_SESSION['id'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
-        $_SESSION['admin'] = $user['SA'];
-        $_SESSION['student'] = $user['SS'];
-        $_SESSION['Hostel'] = $user['HA'];
         $_SESSION['message'] = 'You are logged in';
         $_SESSION['type'] = 'success';
-     
-        if($_SESSION['admin']){
-          header('location: users/system_Admin/index.php');
-        }else if ($_SESSION['student']) {
-            header('Location: users/student/index.php');
-        } else {
-            header('Location: users/hostel_Admin/index.php');
-        }
-        exit();
      }
 
     //register students only
@@ -68,6 +56,20 @@
         if (count($errors) === 0) {
             $user = selectOne($table, ['email'=> $_POST['email']]);
             if ($user && password_verify($_POST['password'], $user['password'])){
+
+                if ($user['type'] === 'SS') {
+                    $_SESSION['user_type'] = 'SS';
+                    header('Location: users/student/index.php');
+                    exit();
+                } elseif ($user['type'] === 'SH') {
+                    $_SESSION['user_type'] = 'SH';
+                    header('Location: users/hostel_Admin/index.php');
+                    exit();
+                } elseif ($user['type'] === 'SA') {
+                    $_SESSION['user_type'] = 'SA';
+                    header('Location: users/system_Admin/index.php');
+                    exit();
+                }
                 userlog($user);// call the user log function
         
               } else {

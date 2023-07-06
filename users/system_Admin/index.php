@@ -17,6 +17,7 @@
 <body>    
 
 <div class="antialiased bg-gray-900 w-full min-h-screen text-slate-300 relative py-4">
+    <?php include '../../helpers/message.php' ?>
     <div class=" md:grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
         <div id="menu" class="hidden md:block bg-white/10 col-span-3 rounded-lg p-4 ">
             <img src="Screenshot_2023-07-01_150822-removebg-preview.png" class="h-12" alt="">
@@ -89,7 +90,7 @@
                         
                     </div>
                 </a>
-                <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                <a href="../../logout.php" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:text-indigo-400">

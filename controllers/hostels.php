@@ -16,6 +16,7 @@
             $hostel = create($table, $_POST);
             $_SESSION['message'] ='Hostel added successfully';
             header('location:hostels.php');
+            exit();
         }
     }
     

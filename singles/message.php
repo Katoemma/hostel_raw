@@ -102,7 +102,7 @@
         <!-- end of side menu -->
         <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
             <div>
-                <h1 class="font-bold py-4 uppercase">Hostels</h1>
+                <h1 class="font-bold py-4 uppercase">Rooms</h1>
                 <!-- component -->
                 <div class="md:px-32 py-8 w-full">
                 <div class="shadow overflow-hidden rounded border-b border-gray-200">

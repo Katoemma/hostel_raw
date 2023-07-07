@@ -7,5 +7,9 @@
         if ($_POST['admin'] == "") {
             array_push($errors, "Admin should be selected!");
         }
+        $hostelexists = selectOne('hostels',['name' =>$_POST['name']]);
+        if ($hostelexists) {
+            array_push($errors, "Hostel Name Exists!");
+        }
         return $errors;
     }

@@ -29,9 +29,9 @@
                 </div>
                 <div class = "flex flex-row justify-between mb-2">
                     <a class = "text-white text-sm md:text-md ">Forgot Password</a>
-                    <a href="register.php" class = "text-[#00FF00] text-sm md:text-md">Signup</a>
+                    <a href="register.php" class = "text-orange-700 text-sm md:text-md">Signup</a>
                 </div>
-                <button type="submit" name="loginBtn" class="w-full text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Login</button>
+                <button type="submit" name="loginBtn" class="w-full text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Login</button>
             </form>
             <p class="text-center text-white text-xs mt-2">
                 &copy; 2023 StuStay. All rights reserved.

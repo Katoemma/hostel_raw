@@ -1,5 +1,6 @@
 <?php include '../../controllers/users.php' ?>
 <?php include('includes/header.php') ?>
+<?php include('../alert.php') ?>
 <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
     <div>
         <h1 class="font-bold py-4 uppercase">Hostels</h1>
@@ -17,42 +18,43 @@
                         <input class="bg-gray-50 outline-none ml-1 block rounded-lg" type="text" name="" id="" placeholder="search...">
                     </form>
                     <div class="lg:ml-40 ml-10 space-x-8">
-                        <button data-modal-target="newUser" data-modal-toggle="newUser" class="bg-orange-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">New User</button>
+                        <button data-modal-target="newUser" data-modal-toggle="newUser" class="bg-green-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">New User</button>
                     </div>
                 </div>
             </div>
                 <div>
-                    <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                    <div class="mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                             <table class="min-w-full leading-normal">
                                 <thead>
-                                    <tr>
+                                    <tr class="bg-gray-200">
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                             Name
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                             Hostel
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                            Created at
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            email
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                            STUDENTS
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Contact
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                            Status
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Action
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php for ($i=0; $i <3 ; $i++):?>
-                                        <tr>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <tbody class="border border-gray-200">
+                                    <?php $users = selectAll('users',['type' => 'SH']) ?>
+                                    <?php foreach ($users as $key => $user):?>
+                                        <tr class="">
+                                            <td class="px-5 py-5 border-b border-gray-200 text-sm">
                                                 <div class="flex items-center">
                                                     <div class="flex-shrink-0 w-10 h-10">
                                                         <img class="w-full h-full rounded-full"
@@ -60,35 +62,47 @@
                                                             alt="" />
                                                     </div>
                                                         <div class="ml-3">
-                                                            <p class="text-gray-900 whitespace-no-wrap">
-                                                                John Doe
+                                                            <p class="text-gray-100 whitespace-no-wrap">
+                                                                <?php echo $user['fname']." ".$user['lname'] ?>
                                                             </p>
                                                         </div>
                                                     </div>
                                             </td>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">Mandela Hostel</p>
-                                            </td>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                    Jan 21, 2020
+                                            <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                                <?php
+                                                    $hostel = selectOne('hostels',['admin'=> $user['id']]);
+                                                ?>
+                                                <p class="text-gray-100 whitespace-no-wrap">
+                                                    <?php
+                                                        if ($hostel) {
+                                                            echo $hostel['name'];
+                                                        } else {
+                                                            echo "Not Assigned";
+                                                        }
+                                                        
+                                                    ?>
                                                 </p>
                                             </td>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                    43
+                                            <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                                <p class="text-gray-100 whitespace-no-wrap">
+                                                    <?php echo $user['email'] ?>
                                                 </p>
                                             </td>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                                <p class="text-gray-100 whitespace-no-wrap">
+                                                    <?php echo $user['phone'] ?>
+                                                </p>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 text-sm">
                                                 <span
-                                                    class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                                    class="relative inline-block px-3 py-1 font-semibold text-white leading-tight">
                                                     <span aria-hidden
-                                                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                                <span class="relative">Active</span>
+                                                        class="absolute inset-0 bg-green-500 opacity-50 rounded-full"></span>
+                                                <span class="relative">View</span>
                                                 </span>
                                             </td>
                                         </tr>
-                                    <?php endfor; ?>
+                                    <?php endforeach; ?>
                                     
                                 </tbody>
                             </table>
@@ -99,12 +113,12 @@
                                 </span>
                                 <div class="inline-flex mt-2 xs:mt-0">
                                     <button
-                                        class="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-l">
+                                        class="text-sm text-indigo-50 transition duration-150 hover:bg-green-600 bg-green-600 font-semibold py-2 px-4 rounded-l">
                                         Prev
                                     </button>
                                     &nbsp; &nbsp;
                                     <button
-                                        class="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-r">
+                                        class="text-sm text-indigo-50 transition duration-150 hover:bg-green-600 bg-green-600 font-semibold py-2 px-4 rounded-r">
                                         Next
                                     </button>
                                 </div>
@@ -117,7 +131,7 @@
     </div>
 </div>
 <!-- new user modal -->
-<div id="newUser" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="newUser"  data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-md max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -128,27 +142,40 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h3>
-                <form class="space-y-6" action="#">
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required>
-                    </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
-                    </div>
-                    <div class="flex justify-between">
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
-                            </div>
-                            <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                <?php include('../../helpers/message.php') ;?>
+                <form action="users.php" method="post" class="border-2 border-gray-400 p-4 rounded-lg" >
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-6 group">
+                            <input type="text" name="fname" value="<?php echo $fname ?>"  class="block py-2.5 px-2 w-full text-sm text-black bg-transparent border-0 border-2 border-gray-300 rounded-lg" placeholder="First Name " />
                         </div>
-                        <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+                        <div class="relative z-0 w-full mb-6 group">
+                            <input type="text" name="lname" value="<?php echo $lname ?>"  class="block py-2.5 px-2 w-full text-sm text-black bg-transparent border-0 border-2 border-gray-300 rounded-lg" placeholder="Last Name " />
+                        </div>
                     </div>
-                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
-                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="email" name="email" value="<?php echo $email ?>" class="block py-2.5 px-2 w-full text-sm text-black  border-0 border-2 border-gray-300 rounded-lg" placeholder="Your Email" />
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="password" name="password" value="<?php echo $password ?>"  class="block py-2.5 px-2 w-full text-sm text-black   border-0 border-2 border-gray-300 rounded-lg" placeholder="Your Password "/> 
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="password" name="repeatPassword" value="<?php echo $repeatPassword ?>"  class="block py-2.5 px-2 w-full text-sm text-black   border-0 border-2 border-gray-300 rounded-lg" placeholder="Confirm Password" />
+                    </div>
+                    
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="tel" name="phone" value="<?php echo $phone  ?>"  class="block py-2.5 w-full text-sm  bg-transparent border-0 border-2 border-gray-300 rounded-lg px-2 " placeholder=" Phone number (071-234-5678)" />
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">                   
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-500 ">Select Your Gender</label>
+                        <select name="gender" class="bg-gray-900 border border-gray-300 text-gray-200 text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected>Choose Gender</option>
+                        <option value="F">Female</option>
+                        <option value="M">Male</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="type" value="SH">
+                    <button type="submit" name="addHostel" class="text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center">Submit</button>
+                    <div class = "flex flex-row justify-between my-2">
                     </div>
                 </form>
             </div>

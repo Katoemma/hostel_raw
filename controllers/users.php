@@ -24,7 +24,7 @@
         $_SESSION['type'] = 'success';
      }
 
-    //register students only
+    //register students and system Admin
     if (isset($_POST['submitBtn'])) {
         $errors = validateRegister($_POST);
 
@@ -48,6 +48,28 @@
             $campus = $_POST['campus'];
             $DOB = $_POST['DOB'];
         }
+    }
+    //register hostel admin
+    if (isset($_POST['addHostel'])) {
+        $errors = validateAdmin($_POST);
+
+        if (count($errors) === 0) {
+            unset($_POST['repeatPassword'],$_POST['addHostel']);
+            $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+            $user=create($table,$_POST);
+            $_SESSION['message'] = 'Hostel Admin Succesfuly created';
+            header('location:users.php');
+            exit();
+        } else {
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $repeatPassword = $_POST['repeatPassword'];
+            $phone = $_POST['phone'];
+        }
+        
     }
     //logging in user
     if (isset($_POST['loginBtn'])) {

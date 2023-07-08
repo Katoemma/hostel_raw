@@ -65,6 +65,17 @@
                         </div>
                     </div>
                 </a>
+                <a href="bookings.php" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                    <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
+                        <div class="px-1">
+                            <i class="fa fa-bookmark"></i>                             
+                        </div>
+                        <div>
+                            <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Bookings (pending)</p>
+                        </div>
+                        
+                    </div>
+                </a>
                 <a href="students.php" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div class="relative flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                         <div class="px-1">
@@ -84,17 +95,6 @@
                             <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Messages</p>
                         </div>
                         <div class="absolute -top-3 -right-3 md:top-0 md:right-0 px-2 py-1.5 rounded-full bg-indigo-800 text-xs font-mono font-bold">23</div>
-                    </div>
-                </a>
-                <a href="profile.php" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
-                    <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
-                        <div class="px-1">
-                            <i class="fa fa-user"></i>                             
-                        </div>
-                        <div>
-                            <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Profile</p>
-                        </div>
-                        
                     </div>
                 </a>
                 <a href="../../logout.php" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">

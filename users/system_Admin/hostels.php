@@ -25,6 +25,8 @@
                 <div>
                     <div class="mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                        <?php $hostels = selectAll('hostels'); ?>
+                        <?php if ($hostels): ?>
                             <table class="min-w-full leading-normal">
                                 <thead>
                                     <tr class="bg-gray-200">
@@ -44,11 +46,15 @@
                                             class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                             Status
                                         </th>
+                                        <th
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Action
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="border border-gray-200">
-                                    <?php $hostels = selectAll('hostels'); ?>
                                     <?php foreach ($hostels as $key => $hostel):?>
+                                        
                                         <tr class="">
                                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
                                                 <p class="text-gray-100 whitespace-no-wrap"><?php echo $hostel['name']; ?></p>
@@ -70,19 +76,20 @@
                                             </td>
                                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
                                                 <span class="relative inline-block px-3 py-1 font-semibold text-white leading-tight">
-                                                    <?php 
-                                                        if ($hostel['status'] == 1) {
-                                                          echo  '<span class="relative bg-green-600 px-2 py-1 rounded-xl">Active</span>';
-                                                        } else {
-                                                            echo  '<span class="relative bg-red-500 px-2 py-1 rounded-xl">Inactive</span>';
-                                                        }
-                                                        
-                                                    ?>
+                                                    <?php if ($hostel['status'] == 1):?>
+                                                        <a href="hostels.php?deactivate=<?php echo $hostel['id'];?>" class="relative bg-green-600 px-2 py-1 rounded-xl">Deactivate</a>
+                                                    <?php else: ?>
+                                                        <a href="hostels.php?activate=<?php echo $hostel['id'];?>" class="relative bg-red-500 px-2 py-1 rounded-xl">Activate</a>
+                                                    <?php endif; ?>
                                                 </span>
+                                            </td>
+                                            <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                                <button data-modal-target="editModal" data-modal-toggle="editModal" class="text-gray-100 whitespace-no-wrap">
+                                                    <span class="relative bg-orange-600 px-2 py-1 rounded-xl"><i class="fa fa-eye"></i> View</span>
+                                                </button>
                                             </td>
                                         </tr>
                                     <?php endforeach;?>
-                                    
                                 </tbody>
                             </table>
                             <div
@@ -102,6 +109,10 @@
                                     </button>
                                 </div>
                             </div>
+                        <?php else: 
+                            echo "No hostel Registered!!"
+                        ?>
+                        <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -109,7 +120,7 @@
         
     </div>
 </div>
-<!-- new user modal -->
+<!-- new hostel modal -->
 <div id="newUser" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-md max-h-full">
         <!-- Modal content -->

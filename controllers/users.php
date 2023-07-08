@@ -85,10 +85,22 @@
                     header('Location: users/student/index.php');
                     exit();
                 } elseif ($user['type'] === 'SH') {
-                    $_SESSION['user_type'] = 'SH';
-                    userlog($user);// call the user log function
-                    header('Location: users/hostel_Admin/index.php');
-                    exit();
+                    $hostel = selectOne('hostels', ['admin' => $user['id']]);
+                    if ($hostel !== null) {
+                        if ($hostel['status'] === 1) {
+                            $_SESSION['user_type'] = 'SH';
+                            userlog($user); // call the user log function
+                            header('Location: users/hostel_Admin/index.php');
+                            exit();
+                        } else {
+                            header('Location: status.php');
+                            exit();
+                        }
+                    } else {
+                        header('Location: error.php');
+                            exit();
+                    }
+                    
                 } elseif ($user['type'] === 'SA') {
                     $_SESSION['user_type'] = 'SA';
                     userlog($user);// call the user log function

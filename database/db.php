@@ -93,24 +93,25 @@
 
       }
      //function to update
-     function update($table, $id, $data){
+     function update($table, $id ,  $data){
       global $conn;
-
-      $sql = "UPDATE $table SET";
+     
+      $sql = "UPDATE $table SET ";
+  
       $i = 0;
-      foreach ($data as $key => $value) {
-         if ($i=== 0) {
-            $sql = $sql. " key=?";
-         } else {
-            $sql = $sql . " , key=?";
-         }
-         $i++;
+      foreach ($data as $key => $value){
+          if($i === 0){
+              $sql = $sql . " $key=? ";
+          }else {
+              $sql = $sql . ", $key=?";
+          }
+          $i++;
       }
-      $sql = $sql. "WHERE id=?";
-      $data['id'] = $id;
+      $sql = $sql . " WHERE id=?";
+      $data['id']= $id;
       $stmt = executeQuery($sql, $data);
-      return $stmt->affected_rows;
-     }
+      return $stmt -> affected_rows;
+   }
      //function to delete in db
      function delete($table, $id){
       global $conn;

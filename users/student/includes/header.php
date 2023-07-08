@@ -6,8 +6,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<?php echo $description ?>">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Admin Dashboard</title>
+  <title><?php echo $title ?></title>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css"  rel="stylesheet" />
@@ -23,6 +24,7 @@
 
 <div class="antialiased bg-gray-900 w-full min-h-screen text-slate-300 relative py-4">
     <?php include '../../includes/message.php'?>
+    <?php include '../alert.php'?>
     <div class=" md:grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
         <div id="menu" class="hidden md:block bg-white/10 col-span-3 rounded-lg p-4 ">
             <img src="../Screenshot_2023-07-01_150822-removebg-preview.png" class="h-12" alt="">

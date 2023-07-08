@@ -20,3 +20,32 @@
         }
     }
     
+    //activating and deactivating the hostel by system admin
+    if (isset($_GET['activate'])) {
+        $id = $_GET['activate'];
+        $update = update($table, $id , ['status'=> 1]);
+
+        if ($update) {
+            $_SESSION['message'] = "Hostel activated";
+            header('location:hostels.php');
+            exit();
+        }
+        else {
+           echo 'cannot update!'.mysqli_error($conn);
+        }
+    }    
+
+    // deactivating the hostel by system admin
+    if (isset($_GET['deactivate'])) {
+        $id = $_GET['deactivate'];
+        $update = update($table, $id , ['status' => 0]);
+
+        if ($update) {
+            $_SESSION['message'] = "Hostel Deactivated";
+            header('location:hostels.php');
+            exit();
+        }
+        else {
+           echo 'cannot update!'.mysqli_error($conn);
+        }
+    }    

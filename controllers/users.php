@@ -33,8 +33,9 @@
             $_POST['password']= password_hash($_POST['password'],PASSWORD_DEFAULT );
 
             $user = create($table,$_POST);
+            userlog($user);
 
-            header('location:users/student/index.php');
+            header('location:login.php');
             exit();
             
         }else{

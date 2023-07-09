@@ -56,9 +56,6 @@
                             $rooms =  mysqli_fetch_all($result,MYSQLI_ASSOC);
                                     
                             //arange rooms numbers in ascending
-                            usort($rooms, function($a, $b) {
-                                return $a['room'] - $b['room'];
-                            });
                         ?>
                         <?php foreach ($rooms as $key => $room):?>
                             <tr class="w-full border-b border-gray-600">

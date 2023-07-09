@@ -66,7 +66,8 @@
                             <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Hostels</p>
                         <p class="text-slate-400 text-sm hidden md:block">Manage Hostels</p>
                         </div>
-                        <div class="absolute -top-3 -right-3 md:top-0 md:right-0 px-2 py-1.5 rounded-full bg-indigo-800 text-xs font-mono font-bold">23</div>
+                        <?php $hostels = selectAll('hostels') ?>
+                        <div class="absolute -top-3 -right-3 md:top-0 md:right-0 px-2 py-1.5 rounded-full bg-indigo-800 text-xs font-mono font-bold"><?php echo count($hostels)?></div>
                     </div>
                 </a>
                 <a href="students.php" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
@@ -80,7 +81,8 @@
                             <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Students</p>
                         <p class="text-slate-400 text-sm hidden md:block">Manage Students</p>
                         </div>
-                        <div class="absolute -top-3 -right-3 md:top-0 md:right-0 px-2 py-1.5 rounded-full bg-indigo-800 text-xs font-mono font-bold">23</div>
+                        <?php $students = selectAll('users',['type'=>"SS"]) ?>
+                        <div class="absolute -top-3 -right-3 md:top-0 md:right-0 px-2 py-1.5 rounded-full bg-indigo-800 text-xs font-mono font-bold"><?php echo count($students)?></div>
                     </div>
                 </a>
                 <a href="users.php" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">

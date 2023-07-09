@@ -14,7 +14,6 @@
                             <div>
                                 <p class="text-indigo-300 text-sm font-medium uppercase leading-4">Students</p>
                                 <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
-                                    <?php $students = selectAll('users',['type'=>"SS"]) ?>
                                     <span><?php echo count($students)?></span>
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -37,7 +36,6 @@
                             <div>
                                 <p class="text-teal-300 text-sm font-medium uppercase leading-4">Hostels</p>
                                 <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
-                                    <?php $hostels = selectAll('hostels') ?>
                                     <span><?php echo count($hostels)?></span>
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

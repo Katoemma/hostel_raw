@@ -1,11 +1,11 @@
 <?php include '../../controllers/rooms.php' ?>
 <?php include 'includes/header.php' ?>
-<?php include '../alert.php' ?>
 <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
     
     <div>
         <div class="flex justify-between items-center">
-            <h1 class="font-bold py-4 uppercase">Rooms (<?php echo count($rooms);?>)</h1>
+            <?php $totalRooms = selectAll('rooms',['hostel'=>$hostel['id']]);?>
+            <h1 class="font-bold py-4 uppercase">Rooms (<?php echo count($totalRooms);?>)</h1>
 
             <div class="flex items-center">
                 <button type="button" data-modal-target="roomModal" data-modal-toggle="roomModal" class="px-4 py-1 bg-green-600 text-gray-100 font-semibold rounded-lg">Add Room</button>
@@ -24,14 +24,15 @@
                     </thead>
                     <tbody class="text-gray-700 overflow-y-auto">
                         <?php
-                            $rooms = selectAll('rooms',['hostel'=>$hostel['id'],'status'=>1]);
+                    
+                            $rooms = selectAll('booking',['hostel'=>$hostel['id'],'status'=>1]);
                         ?>
-                        <?php foreach ($rooms as $key => $room):?>
+                        <?php foreach ($rooms as $key => $roomy):?>
                             <tr>
-                                <td class="w-1/3 text-left py-3 px-4"><?php echo $room['number'];?></td>
-                                <?php if ($room['type'] == "S"):?>
+                                <td class="w-1/3 text-gray-700 text-left py-3 px-4"><?php echo $roomy['room'];?></td>
+                                <?php if ($roomy['type'] == "S"):?>
                                     <td class="w-1/3 text-left py-3 px-4">Single</td>
-                                <?php elseif($room['type'] == "D"):?>
+                                <?php elseif($roomy['type'] == "D"):?>
                                     <td class="w-1/3 text-left py-3 px-4">Double</td>
                                 <?php else:?>
                                     <td class="w-1/3 text-left py-3 px-4">Triple</td>
@@ -50,16 +51,18 @@
                     </thead>
                     <tbody class="text-gray-700 overflow-y-auto w-full">
                         <?php
-                            $rooms = selectAll('rooms',['hostel'=>$hostel['id'],'status'=>0]);
+                            $query = "SELECT * FROM rooms WHERE room NOT IN (SELECT room FROM booking)";
+                            $result = mysqli_query($conn, $query);
+                            $rooms =  mysqli_fetch_all($result,MYSQLI_ASSOC);
                                     
                             //arange rooms numbers in ascending
                             usort($rooms, function($a, $b) {
-                                return $a['number'] - $b['number'];
+                                return $a['room'] - $b['room'];
                             });
                         ?>
                         <?php foreach ($rooms as $key => $room):?>
                             <tr class="w-full border-b border-gray-600">
-                                <td class="w-1/3 text-left py-3 px-4 text-center"><?php echo $room['number'];?></td>
+                                <td class="w-1/3 text-left py-3 px-4 text-center"><?php echo $room['room'];?></td>
                                 <?php if ($room['type'] == "S"):?>
                                     <td class="w-1/3 text-left py-3 px-4 text-center">Single</td>
                                 <?php elseif($room['type'] == "D"):?>

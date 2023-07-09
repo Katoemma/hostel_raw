@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>    
-
+<?php include '../alert.php' ?>
 <div class="antialiased bg-gray-900 w-full min-h-screen text-slate-300 relative py-4">
     <?php include '../../includes/message.php'?>
     <div class=" md:grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">

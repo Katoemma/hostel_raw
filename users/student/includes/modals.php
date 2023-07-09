@@ -12,8 +12,12 @@
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Book Room At <?php echo $hostel['name']?></h3>
                 <?php include '../../helpers/message.php' ?>
                 <form action="" method="post" class="space-y-6">
+                    <?php
+                        $token = substr($hostel['name'],0,1)."-".$user['id']."-".substr(time(),-4)."-".date('Y');
+                    ?>
                     <input type="hidden" name="student" value="<?php echo $user['id'] ?>">
                     <input type="hidden" name="hostel" value="<?php echo $hostel['id'] ?>">
+                    <input type="hidden" name="token" value="<?php echo $token ?>">
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Room Type</label>
                     <select name="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected value="">Choose Room type</option>

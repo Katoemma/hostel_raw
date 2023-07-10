@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Dashboard | stuStay</title>
+  <title>Settings | stuStay</title>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -102,49 +102,35 @@
         <!-- end of side menu -->
         <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
             <div>
-                <h1 class="font-bold py-4 uppercase">Rooms</h1>
+                <div class="flex justify-between">
+                    <h1 class="font-bold py-4 uppercase">Rooms</h1> 
+                    <ul class="flex space-x-4">
+                        <li class="list-none"><i class="fa fa-wifi"></i></li>
+                        <li class="list-none"><i class="fa fa-shower"></i></li>
+                        <li class="list-none"><i class="fa fa-book"></i></li>
+                        <li class="list-none"><i class="fa fa-wifi"></i></li>
+                    </ul>
+                    <button class="space-x-4 text-orange-600" >Edit <i class="fa fa-pencil"></i></button>
+                </div>
                 <!-- component -->
-                <div class="md:px-32 py-8 w-full">
-                <div class="shadow overflow-hidden rounded border-b border-gray-200">
-                    <table class="min-w-full bg-white">
-                    <thead class="bg-gray-800 text-white">
-                        <tr>
-                        <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
-                        <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Admin</th>
-                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Phone</th>
-                        <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</td>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-700">
-                    <tr>
-                        <td class="w-1/3 text-left py-3 px-4">Mandela Hostel </td>
-                        <td class="w-1/3 text-left py-3 px-4">John Doe</td>
-                        <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">+25678807801</a></td>
-                        <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">johnDoe@stustay.com</a></td>
-                    </tr>
-                    <tr class="bg-gray-100">
-                        <td class="w-1/3 text-left py-3 px-4">Emma</td>
-                        <td class="w-1/3 text-left py-3 px-4">Johnson</td>
-                        <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
-                        <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                    </tr>
-                    <tr>
-                        <td class="w-1/3 text-left py-3 px-4">Oliver</td>
-                        <td class="w-1/3 text-left py-3 px-4">Williams</td>
-                        <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
-                        <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                    </tr>
-                    <tr class="bg-gray-100">
-                        <td class="w-1/3 text-left py-3 px-4">Isabella</td>
-                        <td class="w-1/3 text-left py-3 px-4">Brown</td>
-                        <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="tel:622322662">622322662</a></td>
-                        <td class="text-left py-3 px-4"><a class="hover:text-blue-500" href="mailto:jonsmith@mail.com">jonsmith@mail.com</a></td>
-                    </tr>
-                    </tbody>
-                    </table>
+                <div class=" rounded-lg shadow-md p-4">
+                    <h2 class="text-xl text-gray-100 font-bold mb-4">General Information</h2>
+                    <div>
+                        <div class="mb-4">
+                            <h3 for="hostel-name" class="block font-bold text-gray-50">Hostel Name:</h3>
+                            <p class="text-gray-200 text-sm">Mandela Hostel</p>
+                        </div>
+                        <div class="mb-4">
+                            <h3 for="address" class="block font-bold text-gray-50">Address:</h3>
+                            <p class="text-gray-200 text-sm">Mandela Hostel</p>
+                            
+                        </div>
+                        <div class="mb-4">
+                            <h3 for="description" class="block font-bold text-gray-50">Description:</h3>
+                            <p class="text-gray-200 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores iure consequatur eveniet repudiandae, delectus quia! Reprehenderit aliquam, laborum eligendi id ducimus officiis qui magnam molestiae vitae? Repellendus unde placeat sed?</p>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                
             </div>
             <!-- end of the activity -->
         </div>

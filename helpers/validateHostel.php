@@ -13,3 +13,13 @@
         }
         return $errors;
     }
+    function validateSettings($setting){
+        $errors = array();
+
+        $existingImage = selectOne('settings',['hostel'=>$_POST['hostel']]);
+        if (empty($_FILES['image'])){
+            array_push($errors, "Image is required for the first time!!");
+        }
+
+        return $errors;
+    }

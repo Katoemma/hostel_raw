@@ -1,5 +1,9 @@
-<?php $title = "Dashbord | stustay" ?>
 <?php include '../../controllers/users.php' ?>
+<?php
+    $title = "Dashboard | stustay";
+    // $name = selectOne('users',['id'=> $_SESSION['id']]);
+    // $title = $name['fname']." ". $name['lname']. " | stustay";
+?>
 <?php include 'includes/header.php' ?>     
         <!-- end of side menu -->
         <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
@@ -11,7 +15,9 @@
                             <div>
                                 <p class="text-indigo-300 text-sm font-medium uppercase leading-4">My Hostel</p>
                                 <p class="text-white font-bold text-xl inline-flex items-center space-x-2">
-                                    <span>Mandela Hostel</span>
+                                    <?php $myHostel = selectOne('hostels',['id'=>$booked['hostel']]);?>
+                                    
+                                    <span><?php echo $myHostel['name']?></span>
                                 </p>
                             </div>
                         </div>
@@ -21,7 +27,7 @@
                             <div>
                                 <p class="text-teal-300 text-sm font-medium uppercase leading-4">Room Number</p>
                                 <p class="text-white font-bold text-xl inline-flex items-center space-x-2">
-                                    <span>120</span>
+                                    <span><?php echo $booked['room']?></span>
                                 </p>
                             </div>
                         </div>

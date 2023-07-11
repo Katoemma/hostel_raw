@@ -89,10 +89,18 @@
                     $hostel = selectOne('hostels', ['admin' => $user['id']]);
                     if ($hostel !== null) {
                         if ($hostel['status'] === 1) {
+
                             $_SESSION['user_type'] = 'SH';
-                            userlog($user); // call the user log function
-                            header('Location: users/hostel_Admin/index.php');
-                            exit();
+                            userlog($user);
+
+                            if(empty($hostel['description'])){
+                                $_SESSION['message']= "Please complete set Up";
+                                header('Location: users/hostel_Admin/settings.php');
+                                exit();
+                            }else {
+                                header('Location: users/hostel_Admin/index.php');
+                                exit();
+                            }
                         } else {
                             header('Location: status.php');
                             exit();

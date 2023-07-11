@@ -89,18 +89,28 @@
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Hostel Settings</h3>
                 <?php include('../../helpers/message.php') ?>
                 <form class="space-y-6" action="settings.php" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="hostel" value="<?php echo $hostel['id'] ?>">
+                    <input type="hidden" name="id" value="<?php echo $hostel['id'] ?>">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
                         <input type="text" name="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Ex. plot 9 gulu uganda">
                     </div>
                     <div>                   
                         <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                        <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="This will help your Hostel be seen on google search"></textarea>
+                        <textarea id="message" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="This will help your Hostel be seen on google search"></textarea>
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Embed google Map</label>
                         <input type="text" name="google" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="share the embeded location html file from google maps">
+                    </div>
+                    <div class="flex flex-col gap-2 md:flex-row">
+                        <div>
+                            <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Single Room Price</label>
+                            <input type="number" name="single_room" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ex. 1000000">
+                        </div>
+                        <div>
+                            <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Double Room Price</label>
+                            <input type="number" name="double_room" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Ex. 1000000">
+                        </div>
                     </div>
                     <div> 
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
@@ -138,7 +148,7 @@
                         </ul>
 
                     </div>
-                    <button type="submit" name="settings" class="w-full text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Set Up Hostel</button>
+                    <button type="submit" name="updateBtn" class="w-full text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Set Up Hostel</button>
                     
                 </form>
             </div>

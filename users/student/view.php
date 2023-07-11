@@ -14,37 +14,48 @@
                     <div class="flex gap-4">
                         <button class="p-2 rounded-lg underline">Rules</button>
                         <button class="p-2 rounded-lg underline">Gallery</button>
-                        <button class="p-2 rounded-lg underline">Location</button>
+                        <button data-modal-target="googleModal" data-modal-toggle="googleModal" class="p-2 rounded-lg underline">Location</button>
                     </div>
                 </div>
                 
                 <div class="rounded-lg shadow-md">
-                    <img class="w-full h-64 object-cover object-center rounded-t-lg" src="https://az-hostel-prague-cz.booked.net/data/Photos/OriginalPhoto/13573/1357337/1357337297/A-Plus-Hostel-Centrum-Prague-Exterior.JPEG" alt="Hostel Image">
+                    <img class="w-full h-64 object-cover object-center rounded-t-lg" src="../hostel_Admin/uploads/<?php echo $hostel['image'];?>" alt="Hostel Image">
                     <div class="p-6">
                         <p class="text-gray-200 mb-4"><?php echo $hostel['description'] ?></p>
                         <div class="flex gap-2">
+                            <?php if($hostel['camera']== 1) :?>
                             <div class="flex items-center mb-4">
-                                <i class="fa fa-bed text-gray-500 mr-2"></i>
-                                <p>Single Beds</p>
+                                <i class="fa fa-camera text-gray-500 mr-2"></i>
+                                <p>CCTV camera</p>
                             </div>
-                            <div class="flex items-center mb-4">
-                                <i class="fa fa-wifi text-gray-500 mr-2"></i>
-                                <p>Free Wi-Fi</p>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <i class="fa fa-shower text-gray-500 mr-2"></i>
-                                <p>Self Contained</p>
-                            </div>
-                            <div class="flex items-center mb-4">
-                                <i class="fa fa-wifi text-gray-500 mr-2"></i>
-                                <p>Reading Space</p>
-                            </div>
+                            <?php endif;?>
+
+                            <?php if($hostel['wifi']== 1): ?>
+                                <div class="flex items-center mb-4">
+                                    <i class="fa fa-wifi text-gray-500 mr-2"></i>
+                                    <p>Wi-Fi</p>
+                                </div>
+                            <?php endif;?>
+
+                            <?php if($hostel['self_contained']== 1) :?>
+                                <div class="flex items-center mb-4">
+                                    <i class="fa fa-shower text-gray-500 mr-2"></i>
+                                    <p>Self Contained</p>
+                                </div>
+                            <?php endif;?>
+
+                            <?php if($hostel['reading']== 1): ?>
+                                <div class="flex items-center mb-4">
+                                    <i class="fa fa-wifi text-gray-500 mr-2"></i>
+                                    <p>Reading Space</p>
+                                </div>
+                            <?php endif;?>
                         </div>
                         <div class="border-t border-gray-300 pt-4">
                             <h3 class="text-lg font-bold mb-4">Pricing</h3>
                             <ul class="list-disc ml-6">
-                                <li>Single Room: UGX <?php echo number_format($hostel['price'])?></li>
-                                <li>Double Room: UGX 450,000/=</li>
+                                <li>Single Room: UGX <?php echo number_format($hostel['single_room'])?></li>
+                                <li>Double Room: UGX <?php echo number_format($hostel['double_room'])?></li>
                             </ul>
                         </div>
         

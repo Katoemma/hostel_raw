@@ -21,6 +21,7 @@
         }
         if (count($errors)=== 0) {
             unset($_POST['settings']);
+            $_POST['google'] = htmlentities($_POST['google']);
 
             $setting = create($table,$_POST);
             $_SESSION['message']="Hostel Set SuccessFully";

@@ -15,9 +15,13 @@
                             <div>
                                 <p class="text-indigo-300 text-sm font-medium uppercase leading-4">My Hostel</p>
                                 <p class="text-white font-bold text-xl inline-flex items-center space-x-2">
+                                    <?php if(!$booked):?>
+                                        <p class="text-white font-medium">No hostel</p>
+                                    <?php else:?>
                                     <?php $myHostel = selectOne('hostels',['id'=>$booked['hostel']]);?>
                                     
                                     <span><?php echo $myHostel['name']?></span>
+                                    <?php endif;?>
                                 </p>
                             </div>
                         </div>
@@ -27,7 +31,11 @@
                             <div>
                                 <p class="text-teal-300 text-sm font-medium uppercase leading-4">Room Number</p>
                                 <p class="text-white font-bold text-xl inline-flex items-center space-x-2">
-                                    <span><?php echo $booked['room']?></span>
+                                    <?php if(!$booked):?>
+                                        <p class="text-white font-medium">No hostel</p>
+                                    <?php else:?>
+                                        <span><?php echo $booked['room']?></span>
+                                    <?php endif;?>
                                 </p>
                             </div>
                         </div>

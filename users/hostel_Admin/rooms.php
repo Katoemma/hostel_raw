@@ -1,4 +1,5 @@
 <?php include '../../controllers/rooms.php' ?>
+<?php include 'includes/security.php'?>
 <?php include 'includes/header.php' ?>
 <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
     
@@ -51,7 +52,8 @@
                     </thead>
                     <tbody class="text-gray-700 overflow-y-auto w-full">
                         <?php
-                            $query = "SELECT * FROM rooms WHERE room NOT IN (SELECT room FROM booking)";
+                            $hostelId =$hostel['id'];
+                            $query = "SELECT * FROM rooms WHERE room NOT IN (SELECT room FROM booking) AND hostel=$hostelId ";
                             $result = mysqli_query($conn, $query);
                             $rooms =  mysqli_fetch_all($result,MYSQLI_ASSOC);
                                     

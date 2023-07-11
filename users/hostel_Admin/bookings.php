@@ -1,4 +1,5 @@
 <?php include '../../controllers/booking.php' ?>
+<?php include 'includes/security.php'?>
 <?php include 'includes/header.php'?>
 
 <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">

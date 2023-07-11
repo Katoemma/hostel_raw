@@ -6,6 +6,8 @@
     $table = 'rooms';
     $rooms = selectAll($table);
 
+    
+
     //adding room
     if (isset($_POST['addRoom'])) {
         $errors = validateRooms($_POST);

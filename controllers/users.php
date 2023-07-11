@@ -120,5 +120,8 @@
               } else {
                 array_push($errors, 'Wrong credentials');
               }
+        }else {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
         }
     }

@@ -1,4 +1,5 @@
 <?php include '../../controllers/users.php' ?>
+<?php include 'includes/security.php'?>
 <?php include 'includes/header.php' ?>
         <!-- end of side menu -->
         <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
@@ -9,8 +10,9 @@
                         <div class="flex flex-row space-x-4 items-center">
                             <div>
                                 <p class="text-indigo-300 text-sm font-medium uppercase leading-4">Total Rooms</p>
+                                <?php $rooms = selectAll('rooms',['hostel'=>$hostel['id']]);?>
                                 <p class="text-white font-bold text-xl inline-flex items-center space-x-2">
-                                    <span>50</span>
+                                    <span><?php echo count($rooms); ?></span>
                                 </p>
                             </div>
                         </div>
@@ -19,8 +21,13 @@
                         <div class="flex flex-row space-x-4 items-center">
                             <div>
                                 <p class="text-teal-300 text-sm font-medium uppercase leading-4">Rooms occupied</p>
+                                <?php $booked = selectAll('booking',['hostel'=> $hostel['id'],'status'=>1]) ?>
                                 <p class="text-white font-bold text-xl inline-flex items-center space-x-2">
-                                    <span>42</span>
+                                    <?php if($booked):?>
+                                    <span><?php echo count($booked); ?></span>
+                                    <?php else:?>
+                                        <span>No booking</span> 
+                                    <?php endif;?>
                                 </p>
                             </div>
                         </div>

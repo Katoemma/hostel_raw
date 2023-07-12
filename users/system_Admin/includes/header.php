@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Admin Dashboard</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css"  rel="stylesheet" />
@@ -33,7 +34,7 @@
     <?php include '../../includes/message.php'?>
     <div class=" md:grid grid-cols-12 mx-auto gap-2 sm:gap-4 md:gap-6 lg:gap-10 xl:gap-14 max-w-7xl my-10 px-2">
         <div id="menu" class="hidden md:block bg-white/10 col-span-3 rounded-lg p-4 ">
-            <img src="../Screenshot_2023-07-01_150822-removebg-preview.png" class="h-12" alt="">
+            <img src="../logo.png" class="h-12" alt="logo">
             <p class="text-slate-400 text-sm mb-2">Welcome back,</p>
             <a href="#" class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                 <div>

@@ -32,7 +32,7 @@
                 $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
             
                 //Recipients
-                $mail->setFrom('emmanuelkato39@gmail.com', 'StuStay Hostels');
+                $mail->setFrom('emmanuelkato39@gmail.com', 'Hostel Savvy Gulu');
                 $mail->addAddress($email);     // Add a recipient
 
                 $code = substr(str_shuffle('1234567890QWERTYUIOPASDFGHJKLZXCVBNM'),0,10);
@@ -40,7 +40,12 @@
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = 'Password Reset';
-                $mail->Body    = 'To reset your password click <a href="http://localhost/hostel_raw/update_password.php?code='.$code.'">here </a>. </br>Reset your password in a day.';
+                $mail->Body    = '<p>We understand that you have encountered difficulties accessing your account on Hostels Savvy account. In order to assist you with resetting your password and regaining access to your account, we have provided a password reset link below:</p>
+                                    <br>
+                                    To reset your password click <a href="http://localhost/hostel_raw/update_password.php?code='.$code.'">here </a>. </br>Reset your password in a day.<br>
+                                    <p>Please ensure that you complete the password reset process within 24 hours of receiving this email. After this time, the link will expire, and you will need to initiate the reset process again.</p>
+                                    <br>
+                                    <p>If you did not request this password reset, please disregard this email. Rest assured that your account remains secure.</p>';
 
 
                 $verifyQuery = $conn->query("SELECT * FROM users WHERE email = '$email'");

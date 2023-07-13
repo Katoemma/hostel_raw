@@ -34,7 +34,7 @@
         <div id="menu" class="hidden md:block bg-white/10 col-span-3 rounded-lg p-4 ">
             <img src="../logo.png" class="h-12" alt="logo">
             <p class="text-slate-400 text-sm mb-2">Welcome back,</p>
-            <a href="#" class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
+            <a href="profile.php" class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                 <div>
                     <img class="rounded-full w-10 h-10 relative object-cover" src="uploads/<?php echo $hostel['image'] ?>" alt="">
                 </div>

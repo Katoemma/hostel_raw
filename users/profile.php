@@ -12,7 +12,13 @@
                                     <?php if($user['image'] == ""):?>
                                         <img class="rounded-full w-36 h-36" src="https://as2.ftcdn.net/v2/jpg/02/10/70/13/1000_F_210701394_juARL2AoYEzgYZWI5zHmcGXmqWwQS8L2.jpg" alt="image description">
                                     <?php else:?>
-                                        <img class="rounded-full w-36 h-36" src="../logo.png" alt="image description">
+                                        <?php if($user['type']== "SA"):?>
+                                            <img class="rounded-full w-36 h-36" src="uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                        <?php elseif($user['type']== "SH"):?>
+                                            <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                        <?php else:?>
+                                            <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                        <?php endif;?>
                                     <?php endif;?>
                                 </div>
                             </div>

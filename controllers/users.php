@@ -125,3 +125,36 @@
             $password = $_POST['password'];
         }
     }
+
+    //updating the system admin user profile and email
+    if (isset($_POST['uploadBtn'])) {
+
+        $errors = validateAdminUpdate($_POST);
+
+        if (!empty($_FILES['dp']['name'])) {
+            $imageName = time()."_".$_FILES['dp']['name'];
+            $uploadFolder = $basePath.'users/system_Admin/uploads/'.$imageName;
+            $imageupload = move_uploaded_file($_FILES['dp']['tmp_name'], $uploadFolder);
+
+            if ($imageupload) {
+                $_POST['image'] = $imageName;
+            }
+            else {
+                array_push($errors, "Image upload failed");
+            }
+        }
+
+        if (count($errors)=== 0) {
+            if (empty($_POST['image'])) {
+                unset($_POST['image']);
+            }
+              
+            $id = $_POST['id'];
+            unset($_POST['id'],$_POST['password'],$_POST['uploadBtn']);
+            
+            $updatedEmail = update($table, $id,$_POST);
+            $_SESSION['message']= "email successfully updated";
+            header('location:profile.php');
+            exit();
+        }
+    }

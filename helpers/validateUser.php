@@ -97,3 +97,25 @@
         return $errors;
        
     }
+    function validateAdminUpdate($user){
+        $errors= array();
+
+        if(empty($_POST['email'])){
+            array_push($errors, "email is required");
+        }
+        if (empty($_POST['password'])) {
+            array_push($errors, "Please enter your Password");
+        }
+
+        $usersPass = selectOne('users',['id'=> $_POST['id']]);
+
+        $pass = $usersPass['password'];
+
+        if (!(password_verify($_POST['password'],$pass))) {
+            array_push($errors, "Incorrect Password");
+        }
+
+        return $errors;
+       
+    }
+    

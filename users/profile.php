@@ -63,7 +63,13 @@
                                                 <span class="text-gray-900">Hostel:</span>
                                             </div>
                                             <div class="w-2/3">
-                                                <span class="text-gray-600">Mandela Hostel</span>
+                                            
+                                            <?php $myHostel = selectOne('hostels',['id'=>$booked['hostel']]);?>
+                                            <?php if (!$myHostel):?>
+                                                <span class="text-gray-600">Not Assigned</span>
+                                            <?php else: ?>
+                                                <span class="text-gray-600"><?php echo $myHostel['name']?></span>
+                                            <?php endif; ?>
                                             </div>
                                         </div>
                                     <?php endif; ?>

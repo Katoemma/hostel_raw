@@ -15,7 +15,7 @@
                         $hostels = selectAll('hostels',['status'=> 1]);
                     ?>
                     <?php foreach ($hostels as  $hostel): ?>
-                        <div class="bg-white rounded-lg shadow-md w-64">
+                        <div class="bg-white rounded-lg shadow-md w-full md:w-64">
                             <!-- component -->
                             <a href="view.php?hostel=<?php echo $hostel['name']?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out">
                                 <div class="rounded-lg">

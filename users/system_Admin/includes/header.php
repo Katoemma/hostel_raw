@@ -129,3 +129,71 @@
             </div>
             <p class="text-sm text-center text-gray-600">v2.0.0.3 | &copy; 2022 Pantazi Soft</p>
         </div>
+
+        <div class="fixed w-full z-50 top-0 left-0 bg-gray-800 md:hidden">
+            <div class="flex items-center justify-between px-4 py-3">
+                <a href="index.php"><img src="../logo.png" class="h-8" alt="logo"></a>
+                <button id="menuToggle" class="text-gray-300 focus:outline-none md:hidden">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden">
+                <div class="flex flex-col space-y-4 px-4 py-2">
+                <a href="profile.php" class="flex items-center space-x-2 hover:text-indigo-400">
+                    <?php if($user['image'] == ""): ?>
+                    <img class="w-10 h-10 rounded-full object-cover" src="https://as2.ftcdn.net/v2/jpg/02/10/70/13/1000_F_210701394_juARL2AoYEzgYZWI5zHmcGXmqWwQS8L2.jpg" alt="">
+                    <?php else: ?>
+                    <img class="w-10 h-10 rounded-full object-cover" src="uploads/<?php echo $user['image'] ?>" alt="image description">
+                    <?php endif; ?>
+                    <div>
+                    <p class="font-medium"><?php echo $user['fname']. " " .$user['lname']; ?></p>
+                    <p class="text-xs text-gray-400"><?php echo $user['campus'] ?></p>
+                    </div>
+                </a>
+                <hr class="border-gray-700">
+                <a href="index.php" class="flex items-center space-x-2 hover:text-indigo-400">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 12h20M2 6h20M2 18h20"></path>
+                    </svg>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+                <a href="hostels.php" class="flex items-center space-x-2 hover:text-indigo-400">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 12h20M2 6h20M2 18h20"></path>
+                    </svg>
+                    <span class="font-medium">Hostels</span>
+                    <div class="ml-auto bg-indigo-800 rounded-full text-xs font-bold px-2 py-1.5"><?php echo count($hostels) ?></div>
+                </a>
+                <a href="students.php" class="flex items-center space-x-2 hover:text-indigo-400">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 12h20M2 6h20M2 18h20"></path>
+                    </svg>
+                    <span class="font-medium">Students</span>
+                    <div class="ml-auto bg-indigo-800 rounded-full text-xs font-bold px-2 py-1.5"><?php echo count($students) ?></div>
+                </a>
+                <a href="users.php" class="flex items-center space-x-2 hover:text-indigo-400">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 12h20M2 6h20M2 18h20"></path>
+                    </svg>
+                    <span class="font-medium">Users</span>
+                </a>
+                <a href="../../logout.php" class="flex items-center space-x-2 hover:text-indigo-400">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span class="font-medium">Logout</span>
+                </a>
+                </div>
+                <p class="text-xs text-center text-gray-600 py-2">v2.0.0.3 | &copy; 2022 Pantazi Soft</p>
+            </div>
+        </div>
+
+        <script>
+        document.getElementById("menuToggle").addEventListener("click", function() {
+            var menu = document.getElementById("mobileMenu");
+            menu.classList.toggle("hidden");
+        });
+        </script>

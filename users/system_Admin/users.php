@@ -5,9 +5,9 @@
     <div>
         <h1 class="font-bold py-4 uppercase">Hostels</h1>
         <!-- component -->
-        <div class="border p-8 rounded-md w-full">
+        <div class="border p-2 md:p-8 rounded-md w-full">
             <div class=" flex items-center justify-between pb-6">
-                <div class="flex items-center justify-between w-full">
+                <div class="flex flex-col md:flex-row gap-4 items-center justify-between w-full">
                     <form class="flex bg-gray-50 items-center p-2 rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">
@@ -23,7 +23,7 @@
                 </div>
             </div>
                 <div>
-                    <div class="mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                    <div class="md:mx-4 sm:-mx-8 md:px-4  py-4 overflow-x-auto">
                         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                             <table class="min-w-full leading-normal">
                                 <thead>

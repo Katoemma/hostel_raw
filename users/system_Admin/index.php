@@ -74,9 +74,9 @@
             </div>
             <div id="last-incomes">
                 <h1 class="font-bold py-4 uppercase">Graphical Summary</h1>
-                <div id="stats" class="flex gap-4">
-                    <div class="bg-black/60 to-white/5 rounded-lg w-96">
-                        <canvas class="w-96" id="myChart"></canvas>
+                <div id="stats" class="hidden md:block flex flex-col md:flex-row gap-4">
+                    <div class="bg-black/60 to-white/5 rounded-lg w-96 overflow-x-auto">
+                        <canvas id="myChart"></canvas>
                     </div>
                     <div class="bg-black/60 to-white/5 rounded-lg w-96">
                         <canvas class="w-96" id="myBar"></canvas>

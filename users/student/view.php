@@ -8,7 +8,7 @@
         <!-- end of side menu -->
         <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
             <div>
-                <div class="flex justify-between items-center">
+                <div class="flex flex-col md:flex-row justify-between items-center">
                     <h1 class="font-bold py-4 uppercase"><?php echo $hostel['name'] ?></h1>
                     <button data-modal-target="bookModal" data-modal-toggle="bookModal" class="text-white font-medium bg-green-600 px-4 py-1 h-fit rounded-lg">Book Now</button>
                     <div class="flex gap-4">
@@ -22,7 +22,7 @@
                     <img class="w-full h-64 object-cover object-center rounded-t-lg" src="../hostel_Admin/uploads/<?php echo $hostel['image'];?>" alt="Hostel Image">
                     <div class="p-6">
                         <p class="text-gray-200 mb-4"><?php echo $hostel['description'] ?></p>
-                        <div class="flex gap-2">
+                        <div class="flex flex-col md:flex-row gap-2">
                             <?php if($hostel['camera']== 1) :?>
                             <div class="flex items-center mb-4">
                                 <i class="fa fa-camera text-gray-500 mr-2"></i>

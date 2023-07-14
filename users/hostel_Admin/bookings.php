@@ -10,12 +10,12 @@
 
         <!-- Room table -->
         <div class="md:px-32 py-8 w-full">
-            <div class="shadow rounded border-gray-200">
+            <div class="shadow rounded border-gray-200 overflow-x-auto">
                 <?php
                     $bookings = selectAll('booking',['status'=> 0,'hostel'=>$hostel['id']]);
                     
                 ?>
-                <table class="w-full bg-white rounded-lg">
+                <table class="w-full bg-white rounded-lg ">
                     <thead class="bg-green-600 text-white">
                         <tr>
                             <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">Student Name</th>

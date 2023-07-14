@@ -42,7 +42,15 @@
             </div>
         </div>
         <div>
-        <?php echo html_entity_decode($setting['google'])?>
+        <?php $decodedIframeCode = html_entity_decode($setting['google']);
+        
+                $src = '';
+                preg_match('/src="([^"]+)"/', $decodedIframeCode, $matches);
+                if (isset($matches[1])) {
+                $src = $matches[1];
+                }
+        ?>
+        <iframe src="<?php echo $src ;?>" frameborder="0" class="w-full h-96"></iframe>
         </div>
     </div>
     <!-- end of the activity -->

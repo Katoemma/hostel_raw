@@ -1,8 +1,10 @@
-<?php 
-    $title = "Hostels | stustay" ;
-    $description ='Find Your Favourite Hostel Around Gulu University';
-?>
+
 <?php include '../../controllers/users.php' ?>
+<?php include 'includes/title.php' ?>
+<?php
+    $title = "Hostels | hostels savvy";
+    $decription = "Discover Students hostel that fits your needs around Gulu City";
+?>
 <?php include 'includes/header.php'?>
 <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
             <div>

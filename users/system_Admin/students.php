@@ -1,4 +1,8 @@
 <?php include '../../controllers/users.php' ?>
+<?php include 'includes/title.php' ?>
+<?php
+    $title = "Students | hostels Savvy";
+?>
 <?php include('includes/header.php') ?>
 <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
     <div>

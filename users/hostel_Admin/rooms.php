@@ -1,4 +1,9 @@
 <?php include '../../controllers/rooms.php' ?>
+<?php include 'includes/title.php' ?>
+<?php
+    $title = "Rooms | ".$hostel['name']." | HostelSavvy";
+    $description = $hostel['description'];
+?>
 <?php include 'includes/security.php'?>
 <?php include 'includes/header.php' ?>
 <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">

@@ -65,7 +65,7 @@
                                             <div class="w-2/3">
                                             
                                             <?php $myHostel = selectOne('hostels',['id'=>$booked['hostel']]);?>
-                                            <?php if (!$myHostel):?>
+                                            <?php if ($myHostel == null):?>
                                                 <span class="text-gray-600">Not Assigned</span>
                                             <?php else: ?>
                                                 <span class="text-gray-600"><?php echo $myHostel['name']?></span>

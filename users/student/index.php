@@ -1,8 +1,8 @@
 <?php include '../../controllers/users.php' ?>
+<?php include 'includes/title.php' ?>
 <?php
-    $title = "Dashboard | stustay";
-    // $name = selectOne('users',['id'=> $_SESSION['id']]);
-    // $title = $name['fname']." ". $name['lname']. " | stustay";
+    $title = "Students Dashboard | hostels savvy";
+    $decription = "Students dashboard that displays students details";
 ?>
 <?php include 'includes/header.php' ?>     
         <!-- end of side menu -->

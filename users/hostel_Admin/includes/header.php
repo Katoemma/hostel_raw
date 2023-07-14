@@ -1,19 +1,11 @@
-<?php 
-    $user = selectOne('users', ['id'=>$_SESSION['id']]);
-    $hostel = selectOne('hostels',['admin' =>$user['id']]);
-?>
-<?php
-    if (!isset($_SESSION['id'])) {
-        header('location:../../index.php');
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Admin Dashboard</title>
+  <title><?php echo $title ?></title>
+  <meta name="description" content="<?php echo $description; ?>">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">

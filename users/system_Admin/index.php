@@ -1,4 +1,8 @@
 <?php include '../../controllers/users.php' ?>
+<?php include 'includes/title.php' ?>
+<?php
+    $title = "Dashboard| Admin | hostels Savvy";
+?>
 <?php include('includes/header.php');?>
         <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
             <div id="24h">
@@ -74,7 +78,7 @@
             </div>
             <div id="last-incomes">
                 <h1 class="font-bold py-4 uppercase">Graphical Summary</h1>
-                <div id="stats" class="hidden md:block flex flex-col md:flex-row gap-4">
+                <div id="stats" class="hidden  md:flex flex-col md:flex-row gap-4">
                     <div class="bg-black/60 to-white/5 rounded-lg w-96 overflow-x-auto">
                         <canvas id="myChart"></canvas>
                     </div>

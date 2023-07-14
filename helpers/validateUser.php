@@ -114,6 +114,10 @@
         if (!(password_verify($_POST['password'],$pass))) {
             array_push($errors, "Incorrect Password");
         }
+        $userexists = selectOne('users', ['email'=>$_POST['email']]);
+        if ($userexists) {
+            array_push($errors, 'Email exists');
+        }
 
         return $errors;
        

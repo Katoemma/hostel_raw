@@ -1,4 +1,5 @@
 <?php include '../../controllers/booking.php' ?>
+<?php include 'includes/title.php' ?>
 <?php
     $hostel = selectOne('hostels',['name'=>$_GET['hostel']]);
     $title = $hostel['name']." | stustay" ;

@@ -18,18 +18,78 @@
                     <input type="hidden" name="student" value="<?php echo $user['id'] ?>">
                     <input type="hidden" name="hostel" value="<?php echo $hostel['id'] ?>">
                     <input type="hidden" name="token" value="<?php echo $token ?>">
-                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Room Type</label>
-                    <select name="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected value="">Choose Room type</option>
-                        <option value="S">Single Room</option>
-                        <option value="D">Double Room</option>
-                    </select>
+                    <div>
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Room Types</label>
+                        <select name="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" onchange="showRooms()">
+                            <option selected value="">Choose room Types</option>
+                            <option value="S">Single Rooms</option>
+                            <option value="D">Double Rooms</option>
+                        </select>
+                    </div>
+                    <div id="singleRooms" class="hidden">
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Available Rooms</label>
+                        <?php
+                            $hostelId = $hostel['id'];
+
+                            $sql = "SELECT * FROM rooms WHERE id NOT IN (SELECT room FROM booking) AND type = 'S' AND hostel = '$hostelId' ";
+                            $qry = $conn->query($sql);
+                            
+                            $singles = mysqli_fetch_all($qry, MYSQLI_ASSOC);
+                        ?>
+                        <select name="room" id="sOption" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected value="">Choose room</option>
+                            <?php foreach ($singles as $single):?>
+                                <option value="<?php echo $single['id']?>"><?php echo $single['room'] ?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div id="DoubleRooms" class="hidden">
+                        <?php
+                            $hostelId = $hostel['id'];
+
+                            $sql = "SELECT * FROM rooms WHERE id NOT IN (SELECT room FROM booking) AND type = 'D' AND hostel = '$hostelId' ";
+                            $qry = $conn->query($sql);
+                            
+                            $doubles = mysqli_fetch_all($qry, MYSQLI_ASSOC);
+                        ?>
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Available Rooms</label>
+                        <select name="room" id="dOption" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected value="">Choose room</option>
+                            <?php foreach ($doubles as $double):?>
+                                <option value="<?php echo $double['id']?>"><?php echo $double['room'] ?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
                     <span class="text-orange-600 font-medium">NB: You will be notified when your Booking has been Approved.</span>
                     <button name="bookBtn" type="submit" class="w-full text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Book Room Now</button>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        function showRooms(){
+            let selectedValue = document.querySelector('select[name="type"]').value;
+            var doubleRooms = document.getElementById("DoubleRooms");
+            var singleRooms = document.getElementById("singleRooms");
+            var sInput = document.getElementById('sOption');
+            var dInput = document.getElementById('dOption');
+
+            if(selectedValue == "S"){
+                singleRooms.style.display = "block";
+                doubleRooms.style.display = "none";
+                dInput.disabled = true;
+            }else if (selectedValue == "D") {
+                doubleRooms.style.display = "block"
+                singleRooms.style.display = "none";
+                sInput.disabled = true;  
+            } else {
+                singleRooms.style.display = "none";
+                doubleRooms.style.display = "none";
+                sInput.disabled = true;
+                dInput.disabled = true;
+            }
+        }
+    </script>
 </div> 
 
 <!-- google map model -->

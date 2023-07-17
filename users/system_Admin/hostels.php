@@ -57,7 +57,15 @@
                                     </tr>
                                 </thead>
                                 <tbody class="border border-gray-200">
-                                    <?php foreach ($hostels as $key => $hostel):?>
+                                <?php
+                                    $itemsPerPage = 5; // You can adjust this value based on your requirement.
+                                    $totalItems = count($hostels); // Assuming $hostels contains all the items to be displayed.
+                                    $totalPages = ceil($totalItems / $itemsPerPage);
+                                    $currentPage = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+                                    $offset = ($currentPage - 1) * $itemsPerPage;
+                                    $hostelsToShow = array_slice($hostels, $offset, $itemsPerPage);
+                                ?>
+                                    <?php foreach ($hostelsToShow as $key => $hostel):?>
                                         
                                         <tr class="">
                                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
@@ -96,21 +104,27 @@
                                     <?php endforeach;?>
                                 </tbody>
                             </table>
-                            <div
-                                class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                                <span class="text-xs xs:text-sm text-gray-900">
-                                    Showing 1 to 4 of 50 Entries
+                            <!-- pagination -->
+                            <div class="flex flex-col items-center mt-2">
+                                <!-- Help text -->
+                                <span class="text-sm text-gray-200">
+                                    Showing <span class="font-semibold text-orange-700"><?php echo (($currentPage - 1) * $itemsPerPage) + 1; ?></span>
+                                    to <span class="font-semibold text-orange-700"><?php echo min($currentPage * $itemsPerPage, $totalItems); ?></span>
+                                    of <span class="font-semibold text-orange-700"><?php echo $totalItems; ?></span> Entries
                                 </span>
+                                <!-- pagination Buttons -->
                                 <div class="inline-flex mt-2 xs:mt-0">
-                                    <button
-                                        class="text-sm text-indigo-50 transition duration-150 hover:bg-green-600 bg-green-600 font-semibold py-2 px-4 rounded-l">
-                                        Prev
-                                    </button>
-                                    &nbsp; &nbsp;
-                                    <button
-                                        class="text-sm text-indigo-50 transition duration-150 hover:bg-green-600 bg-green-600 font-semibold py-2 px-4 rounded-r">
-                                        Next
-                                    </button>
+                                    <?php if ($currentPage > 1): ?>
+                                        <a href="?page=<?php echo $currentPage - 1; ?>" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                            Prev
+                                        </a>
+                                    <?php endif; ?>
+
+                                    <?php if ($currentPage < $totalPages): ?>
+                                        <a href="?page=<?php echo $currentPage + 1; ?>" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                            Next
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         <?php else: 

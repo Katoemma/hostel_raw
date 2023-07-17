@@ -51,21 +51,6 @@
                 <form action="bookings.php" method="post" class="space-y-6">
                     <input type="hidden" name="id" value="<?php echo $booking['id'];?>">
                     <input type="hidden" name="status" value="1">
-                    <div>
-                        <?php
-                            $hostelId =$hostel['id'];
-                            $query = "SELECT * FROM rooms WHERE room NOT IN (SELECT room FROM booking) AND hostel= $hostelId";
-                            $result = mysqli_query($conn, $query);
-                            $unbookedrooms =  mysqli_fetch_all($result,MYSQLI_ASSOC);
-                        ?>
-                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Choose room Number</label>
-                        <select name="room" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="">Choose Type</option>
-                            <?php foreach($unbookedrooms as $unbooked):?>
-                                <option value="<?php echo $unbooked['room'] ?>"><?php echo $unbooked['room'] ?></option>
-                            <?php endforeach;?>
-                        </select>
-                    </div>
                     <button type="submit" name="approve" class=" w-full mt-2 px-4 py-2 bg-green-600 text-gray-100 font-semibold rounded-lg">Approve</button>
                 </form>
             </div>

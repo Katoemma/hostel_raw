@@ -16,7 +16,16 @@
                     <?php
                         $hostels = selectAll('hostels',['status'=> 1]);
                     ?>
-                    <?php foreach ($hostels as  $hostel): ?>
+                    <?php
+                        $itemsPerPage = 6; // You can adjust this value based on your requirement.
+                        $totalItems = count($hostels); // Assuming $hostels contains all the items to be displayed.
+                        $totalPages = ceil($totalItems / $itemsPerPage);
+                        $currentPage = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+                        $offset = ($currentPage - 1) * $itemsPerPage;
+                        $hostelsToShow = array_slice($hostels, $offset, $itemsPerPage);
+                    ?>
+
+                    <?php foreach ($hostelsToShow as  $hostel): ?>
                         <div class="bg-white rounded-lg shadow-md w-full md:w-64">
                             <!-- component -->
                             <a href="view.php?hostel=<?php echo $hostel['name']?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out">
@@ -94,21 +103,29 @@
                     <?php endforeach;?>
                     <!-- cards ends here -->
                 </div>
+                <!-- pagination -->
                 <div class="flex flex-col items-center mt-2">
                     <!-- Help text -->
                     <span class="text-sm text-gray-200">
-                        Showing <span class="font-semibold text-orange-700">1</span> to <span class="font-semibold text-orange-700">10</span> of <span class="font-semibold text-orange-700">100</span> Entries
+                        Showing <span class="font-semibold text-orange-700"><?php echo (($currentPage - 1) * $itemsPerPage) + 1; ?></span>
+                        to <span class="font-semibold text-orange-700"><?php echo min($currentPage * $itemsPerPage, $totalItems); ?></span>
+                        of <span class="font-semibold text-orange-700"><?php echo $totalItems; ?></span> Entries
                     </span>
-                    <!-- Buttons -->
+                    <!-- pagination Buttons -->
                     <div class="inline-flex mt-2 xs:mt-0">
-                        <button class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Prev
-                        </button>
-                        <button class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Next
-                        </button>
+                        <?php if ($currentPage > 1): ?>
+                            <a href="?page=<?php echo $currentPage - 1; ?>" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                Prev
+                            </a>
+                        <?php endif; ?>
+
+                        <?php if ($currentPage < $totalPages): ?>
+                            <a href="?page=<?php echo $currentPage + 1; ?>" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                Next
+                            </a>
+                        <?php endif; ?>
                     </div>
-                  </div>
+                </div>
             <!-- end of the activity -->
             </div>
         </div>

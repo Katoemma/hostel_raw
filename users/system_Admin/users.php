@@ -56,14 +56,28 @@
                                 </thead>
                                 <tbody class="border border-gray-200">
                                     <?php $users = selectAll('users',['type' => 'SH']) ?>
-                                    <?php foreach ($users as $key => $user):?>
+                                    <?php
+                                        $itemsPerPage = 4; // You can adjust this value based on your requirement.
+                                        $totalItems = count($hostels); // Assuming $hostels contains all the items to be displayed.
+                                        $totalPages = ceil($totalItems / $itemsPerPage);
+                                        $currentPage = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+                                        $offset = ($currentPage - 1) * $itemsPerPage;
+                                        $usersToShow = array_slice($users, $offset, $itemsPerPage);
+                                    ?>
+                                    <?php foreach ($usersToShow as $key => $user):?>
                                         <tr class="">
                                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
                                                 <div class="flex items-center">
                                                     <div class="flex-shrink-0 w-10 h-10">
-                                                        <img class="w-full h-full rounded-full"
-                                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                                            alt="" />
+                                                        <?php if(!empty($user['image'])) :?>
+                                                            <img class="w-full h-full rounded-full"
+                                                                src="uploads/<?php echo $user['image'];?>"
+                                                                alt="" />
+                                                        <?php else: ?>
+                                                            <img class="w-full h-full rounded-full"
+                                                                src="https://as2.ftcdn.net/v2/jpg/02/10/70/13/1000_F_210701394_juARL2AoYEzgYZWI5zHmcGXmqWwQS8L2.jpg"
+                                                                alt="" />
+                                                        <?php endif ;?>
                                                     </div>
                                                         <div class="ml-3">
                                                             <p class="text-gray-100 whitespace-no-wrap">
@@ -110,21 +124,27 @@
                                     
                                 </tbody>
                             </table>
-                            <div
-                                class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                                <span class="text-xs xs:text-sm text-gray-900">
-                                    Showing 1 to 4 of 50 Entries
+                            <!-- pagination -->
+                            <div class="flex flex-col items-center mt-2">
+                                <!-- Help text -->
+                                <span class="text-sm text-gray-200">
+                                    Showing <span class="font-semibold text-orange-700"><?php echo (($currentPage - 1) * $itemsPerPage) + 1; ?></span>
+                                    to <span class="font-semibold text-orange-700"><?php echo min($currentPage * $itemsPerPage, $totalItems); ?></span>
+                                    of <span class="font-semibold text-orange-700"><?php echo $totalItems; ?></span> Entries
                                 </span>
+                                <!-- pagination Buttons -->
                                 <div class="inline-flex mt-2 xs:mt-0">
-                                    <button
-                                        class="text-sm text-indigo-50 transition duration-150 hover:bg-green-600 bg-green-600 font-semibold py-2 px-4 rounded-l">
-                                        Prev
-                                    </button>
-                                    &nbsp; &nbsp;
-                                    <button
-                                        class="text-sm text-indigo-50 transition duration-150 hover:bg-green-600 bg-green-600 font-semibold py-2 px-4 rounded-r">
-                                        Next
-                                    </button>
+                                    <?php if ($currentPage > 1): ?>
+                                        <a href="?page=<?php echo $currentPage - 1; ?>" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                            Prev
+                                        </a>
+                                    <?php endif; ?>
+
+                                    <?php if ($currentPage < $totalPages): ?>
+                                        <a href="?page=<?php echo $currentPage + 1; ?>" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                            Next
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>

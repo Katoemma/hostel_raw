@@ -34,7 +34,8 @@
                                     <?php if(!$booked):?>
                                         <p class="text-white font-medium">No Room</p>
                                     <?php else:?>
-                                        <span><?php echo $booked['room']?></span>
+                                        <?php $myRoom = selectOne('rooms',['id'=>$booked['room']]) ?>
+                                        <span><?php echo $myRoom['room']?></span>
                                     <?php endif;?>
                                 </p>
                             </div>

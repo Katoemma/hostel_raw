@@ -33,3 +33,12 @@
 
         return $errors;
     }
+    function validateImage($image){
+        $errors = array();
+
+        if (empty($_POST['caption'])) {
+            array_push($errors, "Please in put the image caption");
+        }
+
+        return $errors;
+    }

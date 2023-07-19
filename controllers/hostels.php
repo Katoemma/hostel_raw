@@ -117,3 +117,34 @@ if (isset($_POST['addRule'])) {
         exit();
     }
 }
+
+//adding gallery image
+if (isset($_POST['uploadImg'])) {
+    
+    $errors = validateImage($_POST);
+
+    if (!empty($_FILES['image']['name'])) {
+        $imageName = time()."_".$_FILES['image']['name'];
+        $uploadFolder = $basePath.'users/hostel_Admin/uploads/'.$imageName;
+        $imageupload = move_uploaded_file($_FILES['image']['tmp_name'], $uploadFolder);
+
+        if ($imageupload) {
+            $_POST['image'] = $imageName;
+        }
+        else {
+            array_push($errors, "Image upload failed");
+        }
+    }else{
+        array_push($errors, "Image is required");
+    }
+
+    if (count($errors)=== 0) {
+        unset($_POST['uploadImg']);
+
+        $image = create('gallery', $_POST);
+        $_SESSION['message'] = "Gallery image successfully added!";
+        header('location:settings.php');
+        exit();
+    } 
+
+}

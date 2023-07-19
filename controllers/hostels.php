@@ -20,36 +20,6 @@
         }
     }
 
-    //updating hostel by the hostel admin
-    
-    // if (isset($_POST['updateBtn'])) {
-    //     $errors = validateUpdate($_POST);
-    //     if (!empty($_FILES['image']['name'])) {
-    //         $imageName = time()."_".$_FILES['image']['name'];
-    //         $uploadFolder = $basePath.'users/hostel_Admin/uploads/'.$imageName;
-    //         $imageupload = move_uploaded_file($_FILES['image']['tmp_name'], $uploadFolder);
-
-    //         if ($imageupload) {
-    //             $_POST['image'] = $imageName;
-    //         }
-    //         else {
-    //             array_push($errors, "Image upload failed");
-    //         }
-    //     }
-    //     if (count($errors)=== 0) {
-    //         unset($_POST['id'],$_POST['updateBtn']);
-    //         $_POST['google'] = htmlentities($_POST['google']);
-
-    //         $setting = update($table,$_POST['id'],$_POST);
-    //         $_SESSION['message']="Hostel updated  SuccessFully";
-    //         header('location:settings.php');
-    //         exit();
-    //     } else {
-    //         array_push($errors,"nit ypdated"); // Store errors in session variable
-    //         header('location: form.php'); // Redirect back to the form page
-    //         exit();
-    //     }
-    // }
     
     //activating the hostel by system admin
     if (isset($_GET['activate'])) {

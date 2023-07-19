@@ -48,9 +48,11 @@
                 <div class="relative z-0 w-full mb-6 group">
                     <input type="tel" name="phone" value="<?php echo $phone  ?>"  class="block py-2.5 w-full text-sm text-gray-100 bg-transparent border-0 border-2 border-gray-300 rounded-lg px-2 " placeholder=" Phone number (071-234-5678)" />
                 </div>
+                <?php if(!(count($users) === 0)):?>
                 <div class="relative z-0 w-full mb-6 group">
                     <input type="text" name="campus" value="<?php echo $campus  ?>"  class="block py-2.5 w-full text-sm text-gray-100 bg-transparent border-0 border-2 border-gray-300 rounded-lg px-2 " placeholder="Campus (Ex. Gulu University)"/>
                 </div>
+                <?php endif;?>
                 <div class="relative z-0 w-full mb-6 group">                   
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-500 ">Select Your Gender</label>
                     <select name="gender" class="bg-gray-900 border border-gray-300 text-gray-200 text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

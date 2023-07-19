@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 03:08 PM
+-- Generation Time: Jul 19, 2023 at 05:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -51,11 +51,14 @@ CREATE TABLE `booking` (
 CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
   `hostel` int(11) NOT NULL,
-  `image` int(11) NOT NULL,
+  `image` text NOT NULL,
+  `caption` text NOT NULL,
   `uploaded` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `gallery`
+-
 
 --
 -- Table structure for table `hostels`
@@ -83,7 +86,6 @@ CREATE TABLE `hostels` (
 --
 -- Dumping data for table `hostels`
 --
-
 -- --------------------------------------------------------
 
 --
@@ -102,7 +104,6 @@ CREATE TABLE `rooms` (
 -- Dumping data for table `rooms`
 --
 
-
 -- --------------------------------------------------------
 
 --
@@ -119,8 +120,6 @@ CREATE TABLE `rules` (
 --
 -- Dumping data for table `rules`
 --
-
-
 
 -- --------------------------------------------------------
 
@@ -169,8 +168,6 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
-
-
 
 --
 -- Indexes for dumped tables
@@ -239,7 +236,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `hostels`

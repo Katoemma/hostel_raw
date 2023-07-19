@@ -103,3 +103,17 @@ if (isset($_POST['updateBtn'])) {
         }
    
 }
+
+//add rules and regulations
+if (isset($_POST['addRule'])) {
+    $errors = validateRule($_POST);
+
+    if (count($errors)=== 0) {
+        unset($_POST['addRule']);
+
+        $rule = create('rules', $_POST);
+        $_SESSION['message']= "Rule added successfully";
+        header('location:settings.php');
+        exit();
+    }
+}

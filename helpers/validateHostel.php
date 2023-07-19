@@ -24,3 +24,12 @@
 
         return $errors;
     }
+    function validateRule($rule){
+        $errors = array();
+
+        if (empty($_POST['rule'])) {
+            array_push($errors, "Please input rule to submit");
+        }
+
+        return $errors;
+    }

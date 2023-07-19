@@ -120,6 +120,7 @@
             <p class="text-sm text-center text-gray-600">v2.0.0.3 | &copy; 2022 Pantazi Soft</p>
         </div>
 
+        <!-- mobile menu -->
         <div class="fixed w-full z-50 top-0 left-0 bg-gray-800 md:hidden">
             <div class="flex items-center justify-between px-4 py-3">
                 <a href="index.php"><img src="../logo.png" class="h-8" alt="logo"></a>

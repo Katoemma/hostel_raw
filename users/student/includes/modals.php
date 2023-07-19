@@ -112,11 +112,52 @@
             </div>
             <!-- Modal body -->
             <div class="p-6 space-y-6">
-                <?php echo html_entity_decode($hostel['google']);?>
+                <?php $decodedIframeCode = html_entity_decode($hostel['google']);
+                    $src = '';
+                    preg_match('/src="([^"]+)"/', $decodedIframeCode, $matches);
+                    if (isset($matches[1])) {
+                    $src = $matches[1];
+                    }
+                ?>
+                <iframe src="<?php echo $src ;?>" frameborder="0" class="w-full h-96"></iframe>
             </div>
         </div>
     </div>
 </div>
+
+<!-- hostels rules and regulation Modal -->
+<div id="rulesModal" data-modal-backdrop="static" tabindex="-1" class="fixed top-0 bg-black/60 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow ">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between bg-red-600 p-5 border-b rounded-t ">
+                <h3 class="text-xl font-medium text-gray-100 ">
+                    Rules and Regulations
+                </h3>
+                <button type="button" class="text-gray-100 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="rulesModal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-6 pt-2">
+                <?php $rules =selectAll('rules',['hostel'=> $hostel['id']]);?>
+                <?php foreach($rules as $key=> $rule) :?>
+                    <div class="flex space-x-2 text-gray-900">
+                        <span><?php echo $key + 1 ?>.</span>
+                        <span><?php echo $rule['rule']?></span>
+                    </div>
+                <?php endforeach; ?>
+                <?php if(!($rules)) :?>
+                    <span class="text-red-600">No Rules have been set!!</span>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 

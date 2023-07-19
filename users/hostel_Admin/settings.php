@@ -25,6 +25,7 @@
                 <li class="list-none"><i class="fa fa-camera"></i></li>
                 <?php endif;?>
             </ul>
+            <button data-modal-target="rulesModal" data-modal-toggle="rulesModal" class="hover:underline">Rules</button>
             <button data-modal-target="settingModal" data-modal-toggle="settingModal" class="space-x-4 text-orange-600" >Edit <i class="fa fa-pencil"></i></button>
         </div>
         <!-- component -->

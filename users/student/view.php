@@ -13,7 +13,7 @@
                     <h1 class="font-bold py-4 uppercase"><?php echo $hostel['name'] ?></h1>
                     <button data-modal-target="bookModal" data-modal-toggle="bookModal" class="text-white font-medium bg-green-600 px-4 py-1 h-fit rounded-lg">Book Now</button>
                     <div class="flex gap-4">
-                        <button class="p-2 rounded-lg underline">Rules</button>
+                        <button data-modal-target="rulesModal" data-modal-toggle="rulesModal" class="p-2 rounded-lg underline">Rules</button>
                         <button class="p-2 rounded-lg underline">Gallery</button>
                         <button data-modal-target="googleModal" data-modal-toggle="googleModal" class="p-2 rounded-lg underline">Location</button>
                     </div>

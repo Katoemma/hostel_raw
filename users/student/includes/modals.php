@@ -1,5 +1,5 @@
 <!--booking modal -->
-<div id="bookModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="bookModal" tabindex="-1" aria-hidden="true" class="fixed bg-black/60 top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-md max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -94,7 +94,7 @@
 
 <!-- google map model -->
 
-<div id="googleModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="googleModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed bg-black/60 top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-2xl max-h-full">
         <!-- Modal content -->
         <div class="relative border border-gray-100 bg-gray-800/80 rounded-lg shadow dark:bg-gray-700">
@@ -159,10 +159,8 @@
 </div>
 
 
-
-
 <!-- student email Edit modal -->
-<div id="studentModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+<div id="studentModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed bg-black/60 top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-md max-h-full">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -202,3 +200,42 @@
     </div>
 </div> 
 
+
+<!-- Gallery Modal -->
+<div id="galleryModal" tabindex="-1" class="fixed bg-black/60 top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-4xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                    <?php echo $hostel['name'] ?> Gallery
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="galleryModal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-6 space-y-2">
+                <?php $images = selectAll('gallery', ['hostel'=>$hostel['id']]);?>
+                <?php foreach($images as $image):?>
+                    <figure class="relative   transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+                        <a href="#">
+                            <img class="rounded-lg w-72 lg:w-64 lg:h-64" src="../hostel_Admin/uploads/<?php echo $image['image'];?>" alt="image description">
+                        </a>
+                        <figcaption class="absolute px-4 text-white bottom-6">
+                            <p><?php echo $image['caption'] ?></p>
+                        </figcaption>
+                    </figure>
+                <?php endforeach;?>
+                <?php if(!($images)):?>
+                    <span class="text-red-600 text-xl">
+                        Gallery is Empty!!
+                    </span>
+                <?php endif;?>
+            </div>
+        </div>
+    </div>
+</div>

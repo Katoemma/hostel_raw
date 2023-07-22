@@ -40,12 +40,29 @@
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = 'Password Reset';
-                $mail->Body    = '<p>We understand that you have encountered difficulties accessing your account on Hostels Savvy account. In order to assist you with resetting your password and regaining access to your account, we have provided a password reset link below:</p>
-                                    <br>
-                                    To reset your password click <a href="http://localhost/hostel_raw/update_password.php?code='.$code.'">here </a>. </br>Reset your password in a day.<br>
+                $mail->Body    = '<div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px; margin: 0 auto; padding: 20px;">
+
+                                    <h1 style="text-align: center; color: #ffffff; padding: 10px 0; background-color: #3b82f6;">Password Reset</h1>
+                                
+                                    <p>We understand that you have encountered difficulties accessing your account on Hostels Savvy account. In order to assist you with resetting your password and regaining access to your account, we have provided a password reset link below:</p>
+                                
+                                    <!-- Add the image below using the <img> tag -->
+                                    <div style="text-align: center; margin-bottom: 20px;">
+                                    <img src="http://hostelssavvy.ezyro.com/users/logo.png" alt="Hostels savvy Logo" style="max-width: 100%; height: auto; background-color: #383635;">
+                                    </div>
+                                
+                                    <p style="text-align: center; font-weight: 700;">To reset your password click <a href="http://localhost/hostel_raw/update_password.php?code='.$code.'" style="color: #3b82f6;">here</a>. Reset your password within a day.</p>
+                                
                                     <p>Please ensure that you complete the password reset process within 24 hours of receiving this email. After this time, the link will expire, and you will need to initiate the reset process again.</p>
-                                    <br>
-                                    <p>If you did not request this password reset, please disregard this email. Rest assured that your account remains secure.</p>';
+                                
+                                    <p style="color: #ef4444;">If you did not request this password reset, please disregard this email. Rest assured that your account remains secure.</p>
+                                
+                                    <p style="text-align: center; color: #999;">This email is automatically generated. Please do not reply.</p>
+                                    <div class="footer">
+                                    <p style=" background-color: #ef4444; padding: 10px 0; text-align: center; color: #ffffff;">&copy; <?php echo date("Y"); ?> Hostels Savvy. All rights reserved.</p>
+                                    </div>
+                                
+                                </div>';
 
 
                 $verifyQuery = $conn->query("SELECT * FROM users WHERE email = '$email'");

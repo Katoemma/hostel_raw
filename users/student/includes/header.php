@@ -30,9 +30,21 @@
             <a href="profile.php" class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2">
                 <div>
                     <?php if($user['image'] == ""):?>
-                        <img class="rounded-full w-10 h-10 relative object-cover" src="https://as2.ftcdn.net/v2/jpg/02/10/70/13/1000_F_210701394_juARL2AoYEzgYZWI5zHmcGXmqWwQS8L2.jpg" alt="">
+                        <img class="rounded-full w-10 h-10 relative object-cover border-4 
+                            <?php if ($user['gender'] == "F"):?>
+                                border-red-500
+                            <?php else:?>
+                                border-blue-500
+                            <?php endif; ?>
+                        " src="https://as2.ftcdn.net/v2/jpg/02/10/70/13/1000_F_210701394_juARL2AoYEzgYZWI5zHmcGXmqWwQS8L2.jpg" alt="">
                     <?php else:?>
-                        <img class="rounded-full w-10 h-10 relative object-cover" src="../system_Admin/uploads/<?php echo $user['image']?>" alt="image description">
+                        <img class="rounded-full w-12 h-12 relative object-cover border-4
+                            <?php if ($user['gender'] == "F"):?>
+                                border-red-500
+                            <?php else:?>
+                                border-blue-500
+                            <?php endif; ?>
+                        " src="../system_Admin/uploads/<?php echo $user['image']?>" alt="image description">
                     <?php endif;?>
                 </div>
                 <div>

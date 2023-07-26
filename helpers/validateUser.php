@@ -113,6 +113,25 @@
         return $errors;
        
     }
+
+    function validateDOB($user){
+        $errors= array();
+        if (empty($_POST['DOB'])) {
+            array_push($errors, 'Date of Birth is required');
+        }
+        if (empty($_POST['password'])) {
+            array_push($errors, 'User password is required');
+        }
+        $usersPass = selectOne('users',['id'=> $_POST['id']]);
+
+        $pass = $usersPass['password'];
+
+        if (!empty($_POST['password']) && !(password_verify($_POST['password'],$pass))) {
+            array_push($errors, "Incorrect Password");
+        }
+        return $errors;
+       
+    }
     function validatePass($user){
         $errors= array();
         if (empty($_POST['password'])) {

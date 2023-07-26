@@ -10,31 +10,21 @@
                             <div class="flex flex-col items-center space-x-5">
                                 <div class="rounded-full bg-orange-600 flex items-center justify-center">
                                     <?php if($user['image'] == ""):?>
-                                        <button type="button" 
-                                            <?php if($user['type']=="SA"):?>
-                                                data-modal-target="dpModal" data-modal-toggle="dpModal" 
-                                            <?php elseif($user['type']=="SS"):?>
-                                                data-modal-target="studentModal" data-modal-toggle="studentModal" 
-                                            <?php else:?>
-                                                data-modal-target="hostelModal" data-modal-toggle="hostelModal" 
-                                            <?php endif;?>
+                                        <button type="button" data-modal-target="dpModal" data-modal-toggle="dpModal" 
                                         >
                                             <img class="rounded-full w-36 h-36" src="https://as2.ftcdn.net/v2/jpg/02/10/70/13/1000_F_210701394_juARL2AoYEzgYZWI5zHmcGXmqWwQS8L2.jpg" alt="image description">
                                         </button>
                                     <?php else:?>
-                                        <?php if($user['type']== "SA"):?>
-                                            <button type="button" data-modal-target="dpModal" data-modal-toggle="dpModal">
-                                                <img class="rounded-full w-36 h-36" src="uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
-                                            </button>
-                                        <?php elseif($user['type']== "SH"):?>
-                                            <button>
-                                                <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
-                                            </button>
-                                        <?php else:?>
-                                            <button>
-                                                <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
-                                            </button>
-                                        <?php endif;?>
+                                        <button type="button" data-modal-target="dpModal" data-modal-toggle="dpModal">
+                                            <?php if($user['type']== "SA"):?>
+                                                
+                                                    <img class="rounded-full w-36 h-36" src="uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                            <?php elseif($user['type']== "SH"):?>
+                                                    <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                            <?php else:?>
+                                                    <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                            <?php endif;?>
+                                        </button>
                                     <?php endif;?>
                                 </div>
                             </div>

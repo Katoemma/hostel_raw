@@ -154,29 +154,14 @@
 
     //updating the system admin user profile and email
     if (isset($_POST['uploadBtn'])) {
-        $errors = validateAdminUpdate($_POST);
-    
-        if (!empty($_FILES['dp']['name'])) {
-            $imageName = time()."_".$_FILES['dp']['name'];
-            $uploadFolder = $basePath.'users/system_Admin/uploads/'.$imageName;
-            $imageupload = move_uploaded_file($_FILES['dp']['tmp_name'], $uploadFolder);
-    
-            if ($imageupload) {
-                $_POST['image'] = $imageName;
-            } else {
-                array_push($errors, "Image upload failed");
-            }
-        } else {
-            // If no image is uploaded, unset the image field
-            unset($_POST['image']);
-        }
+        $errors = validateDOB($_POST);
     
         if (count($errors) === 0) {
             $id = $_POST['id'];
             unset($_POST['id'], $_POST['password'], $_POST['uploadBtn']);
     
             $updatedEmail = update($table, $id, $_POST);
-            $_SESSION['message'] = "email successfully updated";
+            $_SESSION['message'] = "Profile successfully updated";
             header('location:profile.php');
             exit();
         }

@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="shortcut icon" href="users/favicon.ico" type="image/x-icon">
-  <title>Login | stuStay</title>
+  <title>Login | Hostels Savvy</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex items-center justify-center h-screen bg-gray-900">
     <div class="px-2">
         <div class="flex flex-col items-center">
-            <img src="Screenshot 2023-07-01 195602.png" alt="" class="w-16">
-            <h1 class="text-white text-4xl font-bold mb-8">Welcome to StuStay</h1>
+            <img src="users/logo.png" alt="logo" class="w-48">
+            <h1 class="text-white text-center text-4xl font-bold mb-8">Welcome to Hostels Savvy</h1>
             <div class="w-full"><?php include('helpers/message.php');?></div>
         </div>
         <div class="md:w-96 md:mx-auto">
@@ -35,7 +35,7 @@
                 <button type="submit" name="loginBtn" class="w-full text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Login</button>
             </form>
             <p class="text-center text-white text-xs mt-2">
-                &copy; 2023 StuStay. All rights reserved.
+                &copy; 2023 Hostelssavvy. All rights reserved.
             </p>
         </div>
     </div>

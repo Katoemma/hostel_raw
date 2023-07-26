@@ -9,14 +9,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="shortcut icon" href="users/favicon.ico" type="image/x-icon">
-  <title>Sign UP | Stustay</title>
+  <title>Sign UP | Hostels Savvy</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex items-center justify-center py-4 bg-gray-900">
     <div class="px-2">
         <div class="flex flex-col items-center">
-            <img src="Screenshot 2023-07-01 195602.png" alt="" class="w-16">
-            <h1 class="text-white text-4xl font-bold mb-8">Sign up to StuStay
+            <img src="users/logo.png" alt="" class="w-48">
+            <h1 class="text-white text-4xl font-bold mb-8">Sign up to Hostels Savvy
                 <?php if(count($users)=== 0):?>
                     (Admin)
                 <?php endif;?>
@@ -70,7 +70,11 @@
                 <?php else: ?>
                     <input type="hidden" name="type" value="SS">
                 <?php endif; ?>
-                <button type="submit" name="submitBtn" class="text-white bg-orange-700 hover:bg-orange-800 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center">Submit</button>
+                <?php if(count($users) === 0):?>
+                    <button type="submit" name="registerAdmin" class="text-white bg-orange-700 hover:bg-orange-800 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center">Submit</button>
+                <?php else: ?>
+                    <button type="submit" name="submitBtn" class="text-white bg-orange-700 hover:bg-orange-800 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center">Submit</button>
+                <?php endif; ?>
                 <div class = "flex flex-row justify-between my-2">
                     <span class = "text-white text-sm md:text-md ">Already Have Account? 
                         <a href="login.php" class = "text-[#00FF00] text-sm md:text-md">Login</a>
@@ -79,7 +83,7 @@
             </form>
   
             <p class="text-center text-white text-xs mt-2">
-                &copy; 2023 StuStay. All rights reserved.
+                &copy; 2023 HostelsSavvy. All rights reserved.
             </p>
         </div>
     </div>

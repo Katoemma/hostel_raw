@@ -48,7 +48,7 @@
                                 
                                     <!-- Add the image below using the <img> tag -->
                                     <div style="text-align: center; margin-bottom: 20px;">
-                                    <img src="users/logo.png" alt="Reset Password" style="max-width: 100%; height: auto; background-color: #383635;">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/753px-Google_%22G%22_Logo.svg.png" alt="Reset Password" style="max-width: 100%; height: auto; background-color: #383635;">
                                     </div>
                                 
                                     <p style="text-align: center; font-weight: 700;">To reset your password click <a href="http://localhost/hostel_raw/update_password.php?code='.$code.'" style="color: #3b82f6;">here</a>. Reset your password within a day.</p>

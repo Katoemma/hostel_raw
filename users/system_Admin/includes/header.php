@@ -11,6 +11,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css"  rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <script>
+        // tailwind.config = {
+        //     darkMode: "class",
+        //     theme: {
+        //     fontFamily: {
+        //         sans: ["Roboto", "sans-serif"],
+        //         body: ["Roboto", "sans-serif"],
+        //         mono: ["ui-monospace", "monospace"],
+        //     },
+        //     },
+        //     corePlugins: {
+        //     preflight: false,
+        //     },
+        // };
+    </script>
 
     <style>
         :root { font-family: 'Inter', sans-serif; }

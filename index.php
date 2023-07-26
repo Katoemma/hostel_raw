@@ -6,13 +6,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="shortcut icon" href="users/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Student Dashboard</title>
+  <title>Hostels Savvy</title>
 </head>
 <body>
     <body class="flex items-center justify-center h-screen bg-gray-900">
         <div class="text-center">
             <div class="flex flex-col items-center">
-                <img src="Screenshot 2023-07-01 195602.png" alt="">
+                <img src="users/logo.png" class="w-48" alt="logo">
                 <h1 class="text-white text-4xl font-bold mb-8">Welcome to StuStay</h1>
             </div>
             <div class="flex flex-col md:flex-row justify-center p-4">

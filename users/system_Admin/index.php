@@ -80,10 +80,22 @@
                 <h1 class="font-bold py-4 uppercase">Graphical Summary</h1>
                 <div id="stats" class="hidden  md:flex flex-col md:flex-row gap-4">
                     <div class="bg-black/60 to-white/5 rounded-lg w-96 overflow-x-auto">
-                        <canvas id="myChart"></canvas>
+                            <canvas
+                                data-te-chart="doughnut"
+                                data-te-dataset-label="Traffic"
+                                data-te-labels="['Students', 'Hostels' , 'Hostels Admin']"
+                                data-te-dataset-data="[<?php echo count($students)?>, <?php echo count($hostels)?>, <?php echo count($Admins)?>]"
+                                data-te-dataset-background-color="['rgba(235, 64, 52)', 'rgba(33, 87, 235)', 'rgba(41, 184, 33)']">
+                            </canvas>
+                        <!-- <canvas id="myChart"></canvas> -->
                     </div>
                     <div class="bg-black/60 to-white/5 rounded-lg w-96">
-                        <canvas class="w-96" id="myBar"></canvas>
+                    <canvas
+                        data-te-chart="bar"
+                        data-te-labels="['Students', 'Hostels' , 'Hostels Admin']"
+                        data-te-dataset-data="[<?php echo count($students)?>, <?php echo count($hostels)?>, <?php echo count($Admins)?>]"
+                        data-te-dataset-background-color="['rgba(235, 64, 52)', 'rgba(33, 87, 235)', 'rgba(41, 184, 33)']">
+                    </canvas>
                     </div>
                     
                 </div>

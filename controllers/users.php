@@ -50,6 +50,32 @@
             $DOB = $_POST['DOB'];
         }
     }
+    //register system Admin
+    if (isset($_POST['registerAdmin'])) {
+        $errors = validateRegisterAdmin($_POST);
+
+        if (count($errors) === 0) {
+            unset($_POST['repeatPassword'],$_POST['submitBtn'],$_POST['registerAdmin']);
+            $_POST['password']= password_hash($_POST['password'],PASSWORD_DEFAULT );
+
+            $user = create($table,$_POST);
+            userlog($user);
+
+            header('location:login.php');
+            exit();
+            
+        }else{
+
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $repeatPassword = $_POST['repeatPassword'];
+            $phone = $_POST['phone'];
+            $campus = $_POST['campus'];
+            $DOB = $_POST['DOB'];
+        }
+    }
     //register hostel admin
     if (isset($_POST['addHostel'])) {
         $errors = validateAdmin($_POST);
@@ -153,6 +179,68 @@
             $_SESSION['message'] = "email successfully updated";
             header('location:profile.php');
             exit();
+        }
+    }
+    //updating the system admin dp;
+    if (isset($_POST['dpBtn'])) {
+    
+        if (!empty($_FILES['dp']['name'])) {
+            $imageName = time()."_".$_FILES['dp']['name'];
+            $uploadFolder = $basePath.'users/system_Admin/uploads/'.$imageName;
+            $imageupload = move_uploaded_file($_FILES['dp']['tmp_name'], $uploadFolder);
+    
+            if ($imageupload) {
+                $_POST['image'] = $imageName;
+            } else {
+                array_push($errors, "Image upload failed");
+            }
+        } else {
+            // If no image is uploaded, unset the image field
+            unset($_POST['image']);
+        }
+    
+        $id = $_POST['id'];
+        unset($_POST['id'], $_POST['password'], $_POST['dpBtn']);
+
+        $updatedEmail = update($table, $id, $_POST);
+        $_SESSION['message'] = "profile pic updated";
+        header('location:profile.php');
+        exit();
+    }
+
+    //updating the user email
+    if (isset($_POST['emailBtn'])) {
+        $errors = validateEmailUpdate($_POST);
+    
+        if (count($errors) === 0) {
+            $id = $_POST['id'];
+            unset($_POST['id'], $_POST['password'], $_POST['emailBtn']);
+    
+            $updatedEmail = update($table, $id, $_POST);
+            $_SESSION['message'] = "email successfully updated";
+            header('location:profile.php');
+            exit();
+        }
+    }
+
+    //updaing password
+    $user_pass = "";
+    if (isset($_POST['passBtn'])) {
+        $errors = validatePassUpdate($_POST);
+    
+        if (count($errors) === 0) {
+            $id = $_POST['id'];
+            unset($_POST['id'], $_POST['user_password'],$_POST['c_password'], $_POST['passBtn']);
+            $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $updatedEmail = update($table, $id, $_POST);
+            $_SESSION['message'] = "Password successfully updated";
+            header('location:profile.php');
+            exit();
+        }
+        else {
+            $user_pass = $_POST['user_password'];
+            $password = $_POST['password'];
+            $repeatPassword = $_POST['c_password'];
         }
     }
     

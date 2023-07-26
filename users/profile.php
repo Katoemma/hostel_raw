@@ -10,14 +10,30 @@
                             <div class="flex flex-col items-center space-x-5">
                                 <div class="rounded-full bg-orange-600 flex items-center justify-center">
                                     <?php if($user['image'] == ""):?>
-                                        <img class="rounded-full w-36 h-36" src="https://as2.ftcdn.net/v2/jpg/02/10/70/13/1000_F_210701394_juARL2AoYEzgYZWI5zHmcGXmqWwQS8L2.jpg" alt="image description">
+                                        <button type="button" 
+                                            <?php if($user['type']=="SA"):?>
+                                                data-modal-target="dpModal" data-modal-toggle="dpModal" 
+                                            <?php elseif($user['type']=="SS"):?>
+                                                data-modal-target="studentModal" data-modal-toggle="studentModal" 
+                                            <?php else:?>
+                                                data-modal-target="hostelModal" data-modal-toggle="hostelModal" 
+                                            <?php endif;?>
+                                        >
+                                            <img class="rounded-full w-36 h-36" src="https://as2.ftcdn.net/v2/jpg/02/10/70/13/1000_F_210701394_juARL2AoYEzgYZWI5zHmcGXmqWwQS8L2.jpg" alt="image description">
+                                        </button>
                                     <?php else:?>
                                         <?php if($user['type']== "SA"):?>
-                                            <img class="rounded-full w-36 h-36" src="uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                            <button type="button" data-modal-target="dpModal" data-modal-toggle="dpModal">
+                                                <img class="rounded-full w-36 h-36" src="uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                            </button>
                                         <?php elseif($user['type']== "SH"):?>
-                                            <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                            <button>
+                                                <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                            </button>
                                         <?php else:?>
-                                            <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                            <button>
+                                                <img class="rounded-full w-36 h-36" src="../system_Admin/uploads/<?php echo $user['image'] ?>" alt="<?php echo $user['fname']." ".$user['lname'] ?>">
+                                            </button>
                                         <?php endif;?>
                                     <?php endif;?>
                                 </div>
@@ -80,7 +96,7 @@
                                                 <span class="text-gray-900">Hostel:</span>
                                             </div>
                                             <div class="w-2/3">
-                                                <span class="text-gray-600">Mandela Hostel</span>
+                                                <span class="text-gray-600"><?php echo $hostel['name'] ?></span>
                                             </div>
                                         </div>
                                     <?php endif; ?>
@@ -102,7 +118,7 @@
                                     </svg>
                                     <span>Edit Profile</span>
                                 </button>
-                                <button class="bg-green-600 flex justify-center items-center mt-2 w-full text-white px-4 py-3 rounded-md focus:outline-none">
+                                <button data-modal-target="passModal" data-modal-toggle="passModal" class="bg-green-600 flex justify-center items-center mt-2 w-full text-white px-4 py-3 rounded-md focus:outline-none">
                                     <span>Change Password</span>
                                 </button>
                             </div>

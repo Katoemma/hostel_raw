@@ -35,7 +35,8 @@
                         ?>
                         <?php foreach ($rooms as $key => $roomy):?>
                             <tr>
-                                <td class="w-1/3 text-gray-700 text-left py-3 px-4"><?php echo $roomy['room'];?></td>
+                                <?php $thisroom = selectOne('rooms',['id'=>$roomy['room']]);?>
+                                <td class="w-1/3 text-gray-700 text-left py-3 px-4"><?php echo $thisroom['room'];?></td>
                                 <?php if ($roomy['type'] == "S"):?>
                                     <td class="w-1/3 text-left py-3 px-4">Single</td>
                                 <?php elseif($roomy['type'] == "D"):?>
@@ -58,7 +59,7 @@
                     <tbody class="text-gray-700 overflow-y-auto w-full">
                         <?php
                             $hostelId =$hostel['id'];
-                            $query = "SELECT * FROM rooms WHERE room NOT IN (SELECT room FROM booking) AND hostel=$hostelId ";
+                            $query = "SELECT * FROM rooms WHERE id NOT IN (SELECT room FROM booking) AND hostel=$hostelId ";
                             $result = mysqli_query($conn, $query);
                             $rooms =  mysqli_fetch_all($result,MYSQLI_ASSOC);
                                     

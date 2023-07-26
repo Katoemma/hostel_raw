@@ -35,8 +35,13 @@
                         ?>
                         <?php foreach ($rooms as $key => $roomy):?>
                             <tr>
+                            
                                 <?php $thisroom = selectOne('rooms',['id'=>$roomy['room']]);?>
-                                <td class="w-1/3 text-gray-700 text-left py-3 px-4"><?php echo $thisroom['room'];?></td>
+                                <td class="w-1/3 text-gray-700 text-left py-3 px-4">
+                                    <button type="button" data-modal-target="viewroomModal<?php echo $roomy['id'];?>" data-modal-toggle="viewroomModal<?php echo $roomy['id'];?>">
+                                        <?php echo $thisroom['room'];?>
+                                    </button>
+                                </td>
                                 <?php if ($roomy['type'] == "S"):?>
                                     <td class="w-1/3 text-left py-3 px-4">Single</td>
                                 <?php elseif($roomy['type'] == "D"):?>
@@ -44,6 +49,8 @@
                                 <?php else:?>
                                     <td class="w-1/3 text-left py-3 px-4">Triple</td>
                                 <?php endif; ?>
+                    
+                            <?php include "includes/modals.php" ?>
                             </tr>
                         <?php endforeach;?>
                         

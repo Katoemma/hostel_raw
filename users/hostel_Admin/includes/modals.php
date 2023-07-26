@@ -419,3 +419,82 @@
         </div>
     </div>
 </div> 
+
+<!--view room modal -->
+<div id="viewroomModal<?php echo $roomy['id'];?>" tabindex="-1" data-modal-backdrop="static" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="viewroomModal<?php echo $roomy['id'];?>">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                </svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+            <div class="px-6 py-6 lg:px-8">
+                <div class="flex items-center">
+                    <h3 class=" text-xl font-medium text-gray-900"><?php echo $thisroom['room'];?> </h3>
+                    <?php if ($roomy['type'] == "S"):?>
+                        <span class=" py-3 px-4 text-black">(Single)</span>
+                    <?php elseif($roomy['type'] == "D"):?>
+                        <span class=" py-3 px-4 text-black">(Double)</span>
+                    <?php else:?>
+                        <span class=" py-3 px-4 text-black">(Triple)</span>
+                    <?php endif; ?>
+                </div>
+                <?php
+                    $studen = selectOne('booking', ['room'=> $thisroom['id']]);
+                    $student = selectOne('users',['id'=>$studen['student']]);
+                ?>
+                
+                <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow mb-4">
+                    <div class="flex flex-col items-center pb-10">
+                        <?php if(empty($student['image'])):?>
+                            <img src="https://as2.ftcdn.net/v2/jpg/02/10/70/13/1000_F_210701394_juARL2AoYEzgYZWI5zHmcGXmqWwQS8L2.jpg" class="w-24 h-24 mb-3 rounded-full shadow-lg" alt="">
+                        <?php else:?>
+                            <img src="../system_Admin/uploads/<?php echo $student['image'] ?>" class="w-24 h-24 mb-3 rounded-full shadow-lg"  alt="<?php echo $student['fname']." ".$student['lname'];?> profile pic">
+                        <?php endif;?>
+                        <h5 class="mb-1 text-xl font-medium text-gray-900 "><?php echo $student['fname']." ".$student['lname'];?></h5>
+                        <span class="text-sm text-gray-500"><?php echo $student['campus'] ?></span>
+                        <span class="text-sm text-gray-500"><?php echo $student['phone'] ?></span>
+                        <span class="text-sm text-gray-500">Gender: <span class="font-normal">
+                                <?php if($student['gender']== "F"):?>
+                                    Female
+                                <?php else: ?>
+                                    Male
+                                <?php endif;?>
+                            </span>
+                        </span>
+                        <p class="text-lg text-gray-900 font-bold">Payment Status: <span class="font-normal"> UGX 450,000</span> </p>
+                    </div>
+                </div>
+                <button type="button" data-modal-target="delmodal<?php echo $roomy['id'];?>" data-modal-toggle="delmodal<?php echo $roomy['id'];?>" data-modal-hide="viewroomModal<?php echo $roomy['id'];?>" class="w-full text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Terminate Occupation</button>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- termination modal -->
+<form class="space-y-8" action="#">
+    <div id="delmodal<?php echo $roomy['id'];?>" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-md max-h-full">
+            <div class="relative bg-white rounded-lg shadow ">
+                <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="delmodal<?php echo $roomy['id'];?>">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="p-6 text-center">
+                    <svg class="mx-auto mb-4 text-red-600 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                    </svg>
+                    <h3 class="mb-5 text-lg font-normal text-orange-500 dark:text-gray-400">Are you sure you want to terminate <strong><?php echo $student['fname']." ".$student['lname'];?></strong> ?</h3>
+                    <button data-modal-hide="popup-modal" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                        Yes, I'm sure
+                    </button>
+                    <button data-modal-hide="delmodal<?php echo $roomy['id'];?>" data-modal-toggle="viewroomModal<?php echo $roomy['id'];?>" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No, cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

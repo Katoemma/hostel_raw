@@ -13,8 +13,8 @@
     <?php include 'includes/message.php'  ?>
     <div class="px-2">
         <div class="flex flex-col items-center mb-2">
-            <img src="users/Screenshot 2023-07-01 195602.png" alt="" class="w-16">
-            <h1 class="text-white font-semibold text-4xl text-center">Stustay</h1>
+            <img src="users/logo.png" alt="" class="w-48">
+            <h1 class="text-white font-semibold text-4xl text-center">Hostels Savvy</h1>
         </div>
         <div class="border border-blue-500 shadow-md rounded-lg px-8 py-10">
             <p class="text-gray-300 mb-6">Enter a valid email address to reset your password.</p>

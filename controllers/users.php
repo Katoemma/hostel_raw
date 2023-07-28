@@ -24,7 +24,7 @@
         $_SESSION['type'] = 'success';
      }
 
-    //register students and system Admin
+    //register students
     if (isset($_POST['submitBtn'])) {
         $errors = validateRegister($_POST);
 
@@ -34,12 +34,17 @@
 
             $user = create($table,$_POST);
             userlog($user);
+            include('welcome.php');
 
+            if ($mail->send()) {
+            // Email sent successfully
             header('location:login.php');
             exit();
+            }else {
+                echo "email not sent";
+            }
             
         }else{
-
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
             $email = $_POST['email'];

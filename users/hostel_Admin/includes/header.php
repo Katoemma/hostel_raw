@@ -83,13 +83,13 @@
                         </div>
                     </div>
                 </a>
-                <a href="messages.php" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                <a href="history.php" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div class="relative flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                         <div class="px-1">
-                            <i class="fa fa-envelope"></i>                             
+                            <i class="fa fa-history"></i>                             
                         </div>
                         <div>
-                            <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Messages</p>
+                            <p class="font-bold text-base lg:text-lg text-slate-200 leading-4 group-hover:text-indigo-400">Histroy</p>
                         </div>
                         <div class="absolute -top-3 -right-3 md:top-0 md:right-0 px-2 py-1.5 rounded-full bg-indigo-800 text-xs font-mono font-bold">23</div>
                     </div>

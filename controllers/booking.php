@@ -5,6 +5,7 @@
 
     $table = 'booking';
 
+    //student booking room
     if (isset($_POST['bookBtn'])) {
         $errors = validateBook($_POST);
         if (count($errors) === 0) {
@@ -17,21 +18,21 @@
         }
     }
 
-    //approving the booking
+    //approving the booking by hostel admin
     if (isset($_POST['approve'])) {
         $errors = validateApprove($_POST);
         
         if (count($errors)===0) {
-            $id =$_POST['id'];
+            $id = $_POST['id'];
             unset($_POST['id'],$_POST['approve']);
 
             $book = update($table,$id,$_POST);
-            $booked= selectOne('booking',['id'=> $_POST['id']]);
+            $booked = selectOne('booking',['id'=> $id]);
+            unset($booked['id'], $booked['type'],$booked['status']);
+            $record = create('records',$booked);
             $_SESSION['message']= "Booking ".$booked['token']." Approved";
             header('location:bookings.php');
             exit();
-        }
-        
-        
+        }   
     }
     

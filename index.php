@@ -13,7 +13,7 @@
         <div class="text-center">
             <div class="flex flex-col items-center">
                 <img src="users/logo.png" class="w-48" alt="logo">
-                <h1 class="text-white text-4xl font-bold mb-8">Welcome to StuStay</h1>
+                <h1 class="text-white text-4xl font-bold mb-8">Welcome to Hostels Savvy</h1>
             </div>
             <div class="flex flex-col md:flex-row justify-center p-4">
                 <a href="login.php" class="w-full md:w-32   mb-2 md:mb-auto md:mr-2 bg-green-600 hover:bg-green-400 text-white font-semibold py-2 px-4 rounded">

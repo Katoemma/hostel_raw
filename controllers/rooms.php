@@ -22,3 +22,28 @@
         }
 
     }
+
+    //adding records on termination of room contract
+    if (isset($_POST['terminateBtn'])) {
+        global $conn;
+
+        $id = $_POST['id'];
+        unset($_POST['terminateBtn'], $_POST['id']);
+    
+        $book = selectOne('booking', ['id' => $id]);
+        $token = $book['token'];
+    
+        
+        $date = date("Y-m-d H:i:s");
+        $sql = "UPDATE records SET created = ? WHERE token = ?";
+    
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$date, $token]);
+    
+        $old = delete("booking", $id);
+        $_SESSION['message'] = "Room contract terminated successfully";
+        header('location:rooms.php');
+        exit();
+    }
+    

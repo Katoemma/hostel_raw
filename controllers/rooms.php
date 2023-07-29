@@ -36,10 +36,10 @@
         
         $date = date("Y-m-d H:i:s");
         $sql = "UPDATE records SET created = ? WHERE token = ?";
-    
         
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$date, $token]);
+        $stmt ->bind_param("ss",$date, $token) ;
+        $stmt->execute();
     
         $old = delete("booking", $id);
         $_SESSION['message'] = "Room contract terminated successfully";

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2023 at 05:40 PM
+-- Generation Time: Jul 29, 2023 at 12:30 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.1.17
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,6 +41,7 @@ CREATE TABLE `booking` (
 --
 -- Dumping data for table `booking`
 --
+
 
 -- --------------------------------------------------------
 
@@ -88,6 +89,29 @@ CREATE TABLE `hostels` (
 --
 -- Dumping data for table `hostels`
 --
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `records`
+--
+
+CREATE TABLE `records` (
+  `id` int(11) NOT NULL,
+  `hostel` int(11) NOT NULL,
+  `student` int(11) NOT NULL,
+  `room` int(11) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `booked` datetime NOT NULL,
+  `created` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `records`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -105,6 +129,8 @@ CREATE TABLE `rooms` (
 --
 -- Dumping data for table `rooms`
 --
+
+
 -- --------------------------------------------------------
 
 --
@@ -117,10 +143,6 @@ CREATE TABLE `rules` (
   `rule` text NOT NULL,
   `created` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `rules`
---
 
 -- --------------------------------------------------------
 
@@ -169,6 +191,8 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
+
+
 --
 -- Indexes for dumped tables
 --
@@ -194,6 +218,12 @@ ALTER TABLE `gallery`
 ALTER TABLE `hostels`
   ADD PRIMARY KEY (`id`),
   ADD KEY `admin` (`admin`);
+
+--
+-- Indexes for table `records`
+--
+ALTER TABLE `records`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `rooms`
@@ -230,43 +260,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `hostels`
 --
 ALTER TABLE `hostels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `records`
+--
+ALTER TABLE `records`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `rules`
 --
 ALTER TABLE `rules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- Constraints for dumped tables

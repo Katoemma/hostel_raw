@@ -22,11 +22,11 @@
             <tbody class="text-gray-700">
                 <?php foreach($students as $student):?>
                     <?php $booking = selectOne('booking',['student'=>$student['id']]);?>
-                    <?php $hostelic = selectOne('hostels',['id'=>$booking['hostel']]);?>
                                             
                     <tr>
                         <td class="w-1/3 text-left py-3 px-4"><?php echo $student['fname']." ".$student['lname'];?> </td>
-                        <?php if($booking != null || $hostelic != null):?>
+                        <?php if(!empty($booking)):?>
+                            <?php $hostelic = selectOne('hostels',['id'=>$booking['hostel']]);?>
                             <?php if($booking['status']== 1):?>
                                 <td class="w-1/3 text-left py-3 px-4"><?php echo $hostelic['name'];?></td>
                             <?php endif;?>

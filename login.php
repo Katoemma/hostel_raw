@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="shortcut icon" href="users/favicon.ico" type="image/x-icon">
   <title>Login | Hostels Savvy</title>
+  <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex items-center justify-center h-screen bg-gray-900">

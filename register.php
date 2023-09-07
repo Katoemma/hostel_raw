@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="users/favicon.ico" type="image/x-icon">
   <title>Sign UP | Hostels Savvy</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="flex items-center justify-center py-4 bg-gray-900">
     <div class="px-2">

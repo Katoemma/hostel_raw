@@ -5,23 +5,23 @@
 ?>
 <?php include('includes/header.php') ?>
 <?php include '../alert.php' ?>
-<div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
+<div id="content" class="bg-white/10 col-span-9 rounded-lg p-6 md:pb-2">
     <div>
         <!-- component -->
-        <div class="border md:p-8 rounded-md w-full">
+        <div class="border md:p-8 md:pt-2 rounded-md w-full">
             <div class=" flex items-center justify-between pb-6">
                 <div class="flex flex-col gap-2  md:flex-row items-center justify-between w-full">
                     <form class="flex bg-gray-50 items-center p-2 rounded-md" action="hostels.php" method="GET">
-                        <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                                 clip-rule="evenodd" />
-                        </svg> -->
+                        </svg>
                         <input class="bg-gray-50 outline-none ml-1 block rounded-lg" type="text" name="search" id="" placeholder="search...">
                     </form>
                     <div class="lg:ml-40 ml-10 space-x-8">
-                        <button data-modal-target="newUser" data-modal-toggle="newUser" class="bg-green-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">New Hostel</button>
+                        <button data-modal-target="newUser" data-modal-toggle="newUser" class="bg-blue-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">New Hostel</button>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                         <?php if ($hostels): ?>
                             <table class="min-w-full leading-normal ">
                                 <thead>
-                                    <tr class="bg-green-500">
+                                    <tr class="bg-blue-600">
                                         <th
                                             class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             Hostel
@@ -175,7 +175,7 @@
                             <option value="<?php echo $admin['id']?>"> <?php echo $admin['fname']." ".$admin['lname'] ?></option>
                         <?php endforeach;?>
                     </select>
-                    <button type="submit" name="addHostel" class="w-full text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add Hostel</button>
+                    <button type="submit" name="addHostel" class="w-full text-white bg-blue-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add Hostel</button>
                 </form>
             </div>
         </div>

@@ -21,31 +21,27 @@
     <?php include '../../includes/message.php'?>
     <?php include '../alert.php' ?>
     <div class="flex flex-col md:flex-row p-4 gap-4">
-        <nav class="hidden md:flex flex-col w-1/6 bg-white rounded-lg h-fit px-4 pb-8 pt-4 lg:sticky md:top-4">
+        <nav class="hidden md:flex flex-col w-1/6 bg-blue-500 rounded-lg h-fit px-4 pb-8 pt-4 lg:sticky md:top-4">
             <a href="index.php" class="flex p-2 mb-4">
                 <img src="../logo.png" class="h-12" alt="logo">
             </a>
 
             <hr class="border-1 border-gray-600 rounded-xl mb-8">
-            <div class="flex flex-col mt-8 mb-16">
-                <a href="index.php" class="px-4 text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t">
+            <div class="flex flex-col mt-8 mb-8">
+                <a href="index.php" class="px-4 text-lg mb-4 py-2 text-white border-t">
                 <i class="fa fa-th-large"></i> Dashboard</a>
 
-                <a href="hostels.php" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t"><i class="fa fa-first-order"></i> Hostels</a>
+                <a href="hostels.php" class="px-4  text-lg mb-4 py-2 text-white border-t"><i class="fa fa-first-order"></i> Hostels</a>
 
-                <a href="students.php" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t"><i class="fa fa-first-order"></i> Students</a>
+                <a href="students.php" class="px-4  text-lg mb-4 py-2 text-white border-t"><i class="fa fa-first-order"></i> Students</a>
                 
-
-
-                <a href="users.php" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t"><i class="fa fa-list-alt"></i> Users</a>
-
-                <a href="#" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t"><i class="fa fa-globe"></i> Equipment Tracking</a>
+                <a href="users.php" class="px-4  text-lg mb-4 py-2 text-white border-t"><i class="fa fa-list-alt"></i> Users</a>
                 
-                <a href="#" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-y"><i class="fa fa-cogs"></i>  Settings</a>
+                <a href="#" class="px-4  text-lg mb-4 py-2 text-white border-y"><i class="fa fa-cogs"></i>  Settings</a>
             </div>
 
             <div class="flex flex-col px-4 mb-4">
-                <a href="../../logout.php" class="text-red-500 text-xl"><i class="fa fa-sign-out"></i> Logout</a>
+                <a href="../../logout.php" class="text-white text-xl"><i class="fa fa-sign-out"></i> Logout</a>
             </div>
             <hr class="w-full border-1 border-green-900 rounded-full">
             <div class="flex w-full py-4">
@@ -109,7 +105,7 @@
         <!-- main content -->
         <div class="md:w-5/6 rounded-lg h-max">
              <!-- upper bar -->
-            <div class="fixed md:relative top-0 left-0 flex justify-between md:justify-end items-center w-full rounded-lg  bg-green-600 shadow p-2 md:sticky md:top-4 ">
+            <div class="fixed md:relative top-0 left-0 flex justify-between md:justify-end items-center w-full rounded-lg  bg-blue-600 shadow p-2 md:sticky md:top-4 ">
                 <!-- mobile menu button -->
                 <i class="fa fa-bars text-2xl text-white pl-4 lg:hidden" id="openBtn" onclick="openM()"></i>
                 <i class="fa fa-times-circle text-2xl text-white pl-4 hidden   lg:hidden" id="closeBtn" onclick="closeM()"></i>

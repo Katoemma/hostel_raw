@@ -5,14 +5,14 @@
 ?>
 <?php include('includes/header.php') ?>
 <?php include('../alert.php') ?>
-<div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
+<div id="content" class="bg-white/10 col-span-9 rounded-lg p-6 md:py-2">
     <div>
         <h1 class="font-bold py-4 uppercase">Hostels</h1>
         <!-- component -->
-        <div class="border p-2 md:p-8 rounded-md w-full">
-            <div class=" flex items-center justify-between pb-6">
+        <div class="border p-2 md:p-8 md:py-2 rounded-md w-full">
+            <div class=" flex items-center justify-between pb-6 md:pb-2">
                 <div class="flex flex-col md:flex-row gap-4 items-center justify-between w-full">
-                    <form class="flex bg-gray-50 items-center p-2 rounded-md">
+                    <form class="flex bg-gray-50 items-center p-1 rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
                             fill="currentColor">
                             <path fill-rule="evenodd"
@@ -22,34 +22,34 @@
                         <input class="bg-gray-50 outline-none ml-1 block rounded-lg" type="text" name="" id="" placeholder="search...">
                     </form>
                     <div class="lg:ml-40 ml-10 space-x-8">
-                        <button data-modal-target="newUser" data-modal-toggle="newUser" class="bg-green-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">New User</button>
+                        <button data-modal-target="newUser" data-modal-toggle="newUser" class="bg-blue-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">New User</button>
                     </div>
                 </div>
             </div>
                 <div>
                     <div class="md:mx-4 sm:-mx-8 md:px-4  py-4 overflow-x-auto">
-                        <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                        <div class="inline-block min-w-full shadow rounded-lg overflow-hidden bg-white">
                             <table class="min-w-full leading-normal">
                                 <thead>
-                                    <tr class="bg-gray-200">
+                                    <tr class="bg-blue-600">
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             Name
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             Hostel
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             email
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             Contact
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold text-white uppercase tracking-wider">
                                             Action
                                         </th>
                                     </tr>
@@ -80,7 +80,7 @@
                                                         <?php endif ;?>
                                                     </div>
                                                         <div class="ml-3">
-                                                            <p class="text-gray-100 whitespace-no-wrap">
+                                                            <p class="text-gray-900 whitespace-no-wrap">
                                                                 <?php echo $user['fname']." ".$user['lname'] ?>
                                                             </p>
                                                         </div>
@@ -90,7 +90,7 @@
                                                 <?php
                                                     $hostel = selectOne('hostels',['admin'=> $user['id']]);
                                                 ?>
-                                                <p class="text-gray-100 whitespace-no-wrap">
+                                                <p class="text-gray-900 whitespace-no-wrap">
                                                     <?php
                                                         if ($hostel) {
                                                             echo $hostel['name'];
@@ -102,22 +102,17 @@
                                                 </p>
                                             </td>
                                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                                                <p class="text-gray-100 whitespace-no-wrap">
+                                                <p class="text-gray-900 whitespace-no-wrap">
                                                     <?php echo $user['email'] ?>
                                                 </p>
                                             </td>
                                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                                                <p class="text-gray-100 whitespace-no-wrap">
+                                                <p class="text-gray-900 whitespace-no-wrap">
                                                     <?php echo $user['phone'] ?>
                                                 </p>
                                             </td>
                                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
-                                                <span
-                                                    class="relative inline-block px-3 py-1 font-semibold text-white leading-tight">
-                                                    <span aria-hidden
-                                                        class="absolute inset-0 bg-green-500 opacity-50 rounded-full"></span>
-                                                <span class="relative">View</span>
-                                                </span>
+                                                <span class="px-4 py-2 rounded-xl text-md text-white bg-blue-600">View</span>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -165,9 +160,9 @@
                 </svg>
             </button>
             <div class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h3>
+                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add New Hostel Admin</h3>
                 <?php include('../../helpers/message.php') ;?>
-                <form action="users.php" method="post" class="border-2 border-gray-400 p-4 rounded-lg" >
+                <form action="users.php" method="post" class="border border-gray-400 p-4 rounded-lg" >
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
                             <input type="text" name="fname" value="<?php echo $fname ?>"  class="block py-2.5 px-2 w-full text-sm text-black bg-transparent border-0 border-2 border-gray-300 rounded-lg" placeholder="First Name " />
@@ -198,7 +193,7 @@
                         </select>
                     </div>
                     <input type="hidden" name="type" value="SH">
-                    <button type="submit" name="addHostel" class="text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center">Submit</button>
+                    <button type="submit" name="addHostel" class="text-white bg-blue-600 hover:bg-green-800 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center">Submit</button>
                     <div class = "flex flex-row justify-between my-2">
                     </div>
                 </form>

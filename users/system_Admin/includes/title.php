@@ -3,7 +3,11 @@
 ?>
 <?php
     if (!isset($_SESSION['id'])) {
-        header('location:../../index.php');
+        header('location:../../login.php');
+        exit();
+    }
+    if($_SESSION['id'] != $user['id']){
+        header('location:../../login.php');
         exit();
     }
 ?>

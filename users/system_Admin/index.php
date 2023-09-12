@@ -8,7 +8,7 @@
             <div id="24h">
                 <h1 class="font-bold py-4 uppercase">Last 24h Statistics</h1>
                 <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-black/60 to-white/5 p-6 rounded-lg">
+                    <div class="bg-green-600 p-6 rounded-lg">
                         <div class="flex flex-row space-x-4 items-center">
                             <div id="stats-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-white">
@@ -29,17 +29,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-black/60 p-6 rounded-lg">
+                    <div class="bg-white shadow-lg p-6 rounded-lg">
                         <div class="flex flex-row space-x-4 items-center">
                             <div id="stats-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-black">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                   </svg>
                                   
                             </div>
                             <div>
                                 <p class="text-teal-300 text-sm font-medium uppercase leading-4">Hostels</p>
-                                <p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
+                                <p class="text-black font-bold text-2xl inline-flex items-center space-x-2">
                                     <span><?php echo count($hostels)?></span>
                                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -101,5 +101,5 @@
                 </div>
             </div>
         </div>
-<?php include('includes/chartjs.php');?>f
+<?php include('includes/chartjs.php');?>
 <?php include('includes/footer.php');?>

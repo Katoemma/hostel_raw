@@ -148,3 +148,27 @@ if (isset($_POST['uploadImg'])) {
     } 
 
 }
+//the search functionnalityon hostels
+if (isset($_GET['search'])) {
+    global $conn;
+    $search = $_GET['search'];
+
+    $sql = 'SELECT * FROM hostels WHERE name LIKE "%' . $search . '%"';
+    // Execute the query
+    $result = mysqli_query($conn, $sql);
+
+     // Check if there are any results
+     $searched = array(); // Initialize an empty array to store results
+     $noResults = "";
+
+     if (mysqli_num_rows($result) > 0) {
+         // Loop through the results and add each row to the $searched array
+         while ($row = mysqli_fetch_assoc($result)) {
+             $searched[] = $row;
+         }
+     } else {
+         $noResults= 1;
+     }
+}
+
+

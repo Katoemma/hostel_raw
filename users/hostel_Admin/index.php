@@ -4,7 +4,6 @@
     $title = "Dashboard | ".$hostel['name']." | HostelSavvy";
     $description = $hostel['description'];
 ?>
-<?php include 'includes/security.php'?>
 <?php include 'includes/header.php' ?>
         <!-- end of side menu -->
         <div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">

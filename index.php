@@ -10,17 +10,17 @@
   <title>Hostels Savvy</title>
 </head>
 <body>
-    <body class="flex items-center justify-center h-screen bg-gray-900">
+    <body class="flex items-center justify-center h-screen bg-blue-600">
         <div class="text-center">
             <div class="flex flex-col items-center">
                 <img src="users/logo.png" class="w-48" alt="logo">
                 <h1 class="text-white text-4xl font-bold mb-8">Welcome to Hostels Savvy</h1>
             </div>
             <div class="flex flex-col md:flex-row justify-center p-4">
-                <a href="login.php" class="w-full md:w-32   mb-2 md:mb-auto md:mr-2 bg-green-600 hover:bg-green-400 text-white font-semibold py-2 px-4 rounded">
+                <a href="login.php" class="w-full md:w-32   mb-2 md:mb-auto md:mr-2 bg-white hover:bg-green-600 text-green-600 hover:text-white font-semibold py-2 px-4 rounded">
                    <i class="fa fa-user"></i> Login
                 </a>
-                <a href="register.php" class="w-full md:w-32  bg-orange-600 hover:bg-orange-400 text-white font-semibold py-2 px-4 rounded">
+                <a href="register.php" class="w-full md:w-32  bg-white hover:bg-orange-400 text-orange-600 font-semibold py-2 px-4 rounded hover:text-white">
                  <i class="fa fa-user-plus"></i>   Sign Up
                 </a>
             </div>

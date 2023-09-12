@@ -4,7 +4,6 @@
     $title = "History | ".$hostel['name']." | HostelSavvy";
     $description = $hostel['description'];
 ?>
-<?php include 'includes/security.php'?>
 <?php include 'includes/header.php' ?>
 
 
